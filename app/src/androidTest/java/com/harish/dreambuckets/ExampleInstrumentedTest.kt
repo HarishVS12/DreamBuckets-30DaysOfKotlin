@@ -1,4 +1,4 @@
-package com.harish.bucketlistprojectsubmission
+package com.harish.dreambuckets
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.harish.bucketlistprojectsubmission", appContext.packageName)
+        assertEquals("com.harish.dreambuckets", appContext.packageName)
     }
 }

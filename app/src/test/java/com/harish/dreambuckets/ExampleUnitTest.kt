@@ -1,4 +1,4 @@
-package com.harish.bucketlistprojectsubmission
+package com.harish.dreambuckets
 
 import org.junit.Test
 

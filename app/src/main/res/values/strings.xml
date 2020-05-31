@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">BucketListProjectSubmission</string>
+    <string name="app_name">Dream Buckets</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_about">About</string>
+    <string name="name">Name</string>
+    <string name="create_bucket">Create Bucket</string>
+    <string name="yourThoughts">Your thoughts</string>
+    <string name="nameHintCateg">What\'s your bucket name?</string>
+    <string name="thoughtsHintCateg">Write your thoughts</string>
+    <string name="category">Category</string>
+    <string name="category_travel">Travel</string>
+    <string name="category_life">Life</string>
+    <string name="category_love">Love</string>
+    <string name="category_food">Food</string>
+    <string name="category_work">Work</string>
+    <string name="category_passion">Passion</string>
+    <string name="target_date">Target Date</string>
+    <string name="fixedDate_hint">Tap here to select the date</string>
 </resources>

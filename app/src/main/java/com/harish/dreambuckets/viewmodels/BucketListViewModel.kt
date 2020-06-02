@@ -23,6 +23,7 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
             get() = _livedate
 
     val bucketLists: LiveData<List<BucketList>>
+    lateinit var bucketListCategory : LiveData<List<BucketList>>
 
     init {
 
@@ -48,6 +49,9 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
         insertBucketLists(bucketList)
     }
 
+    fun getBucketsByCategory(category: String):LiveData<List<BucketList>> {
+            return repository.getBucketsByCategory(category)
+    }
 
     private fun insertBucketLists(bucketList: BucketList) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertBuckets(bucketList)

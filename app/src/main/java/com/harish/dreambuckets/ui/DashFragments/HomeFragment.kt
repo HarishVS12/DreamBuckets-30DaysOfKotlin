@@ -1,6 +1,7 @@
 package com.harish.dreambuckets.ui.DashFragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.harish.dreambuckets.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
+
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +29,15 @@ class HomeFragment : Fragment() {
 //        a.add(HomeDisplayModel("30Days of Kotlin","I really have to finish this and want to get the certifiate as soon as possible"))
 
 
+
         val adapter = HomeDisplayAdapter()
         viewModel.bucketLists.observe(requireActivity(), Observer {
             buckets ->
                     buckets?.let {
+                        if(buckets.isEmpty())
+                            binding.emptyAnimation.visibility = View.VISIBLE
+                        else
+                            binding.emptyAnimation.visibility = View.GONE
                         adapter.setWords(it)
                     }
         })

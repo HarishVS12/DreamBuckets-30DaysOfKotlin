@@ -17,7 +17,7 @@ class HomeDisplayAdapter() : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplay
         val bucketName = itemView.findViewById<TextView>(R.id.bucketNameTextView)
         val bucketThoughts = itemView.findViewById<TextView>(R.id.thoughtsTextView)
         val category = itemView.findViewById<TextView>(R.id.categoryTextView)
-
+        val date = itemView.findViewById<TextView>(R.id.dateTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDisplayViewHolder {
@@ -37,7 +37,8 @@ class HomeDisplayAdapter() : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplay
     override fun onBindViewHolder(holder: HomeDisplayViewHolder, position: Int) {
             holder.bucketName.text = arrayList[position].bucketName
             holder.bucketThoughts.text = arrayList[position].bucketThoughts
-            holder.category.text = arrayList[position].category
+            holder.category.text = "CATEGORY: ${arrayList[position].category}"
+            holder.date.text = "TARGET DATE: ${arrayList[position].bucketTargetDate}"
     }
 }
 

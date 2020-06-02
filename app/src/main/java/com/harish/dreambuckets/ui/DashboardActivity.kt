@@ -52,10 +52,10 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        /*when(item.itemId){
-            R.id.addFragment ->
-                    findNavController(R.id.navHostFragment).navigate(R.id.addFragment)
-        }*/
+        when(item.itemId){
+            R.id.aboutFragment ->
+                    findNavController(R.id.navHostFragment).navigate(R.id.aboutFragment)
+        }
         return super.onOptionsItemSelected(item)
     }
 }

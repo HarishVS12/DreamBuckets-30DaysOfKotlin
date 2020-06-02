@@ -67,14 +67,18 @@ dependencies {
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"
-    // optional - Kotlin Extensions and Coroutines support for Room
+    //Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
 
     //Co-routines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
+    //Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
+    //Optional CardView
+    implementation 'com.github.captain-miao:optroundcardview:1.0.0'
 
 
 }

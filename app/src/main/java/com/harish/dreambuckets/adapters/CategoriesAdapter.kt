@@ -4,16 +4,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.FragmentCategoriesBinding
 
-class CategoriesAdapter(var arrayList: ArrayList<String>) : RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
+class CategoriesAdapter(var arrayList: ArrayList<String>, var onCategoryClickListener:
+                            OnCategoryClickListener) :
+    RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
+
 
 
     class CategoriesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             val textView = itemView.findViewById<TextView>(R.id.tv_categoryTitle)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -29,5 +32,12 @@ class CategoriesAdapter(var arrayList: ArrayList<String>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         holder.textView.text = arrayList[position]
+        holder.itemView.setOnClickListener {
+            onCategoryClickListener.onClickCatListener(position)
+        }
+    }
+
+    interface OnCategoryClickListener{
+        fun onClickCatListener(position: Int)
     }
 }

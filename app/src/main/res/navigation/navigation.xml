@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="com.harish.dreambuckets.ui.DashFragments.CategoriesFragment"
-        android:label="CategoriesFragment" />
+        android:label="CategoriesFragment"
+        tools:layout="@layout/fragment_categories"
+        >
+        <action
+            android:id="@+id/action_categoriesFragment_to_listCategoryFragment"
+            app:destination="@id/listCategoryFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popUpTo="@id/categoriesFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.harish.dreambuckets.ui.DashFragments.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/listCategoryFragment"
+        android:name="com.harish.dreambuckets.ui.DashFragments.ListCategoryFragment"
+        android:label="ListCategoryFragment" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.harish.dreambuckets.ui.about.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

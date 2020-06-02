@@ -5,4 +5,5 @@
     <dimen name="largePadding">16dp</dimen>
     <dimen name="largeMargin">16dp</dimen>
     <dimen name="smallMargin">8dp</dimen>
+    <dimen name="smallPadding">8dp</dimen>
 </resources>

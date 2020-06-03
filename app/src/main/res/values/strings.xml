@@ -17,4 +17,5 @@
     <string name="category_passion">Passion</string>
     <string name="target_date">Target Date</string>
     <string name="fixedDate_hint">Tap here to select the date</string>
+    <string name="create_bucket_button">CREATE BUCKET</string>
 </resources>

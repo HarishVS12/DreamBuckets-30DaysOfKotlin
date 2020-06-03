@@ -38,15 +38,11 @@ class BucketAddActivity : AppCompatActivity() {
         }
 
         binding.fixedDateTextView.setOnClickListener {
-             /*val builder = MaterialDatePicker.Builder.datePicker()
-             picker = builder.build()*/
+
             picker = viewModel.pickerInit()
             picker.show(supportFragmentManager,picker.toString())
 
             picker.addOnPositiveButtonClickListener {
-                /*val date = Date(it)
-                val format = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
-                 month_name = format.format(date)*/
                     viewModel.pickerDateReceiver(it)
             }
         }
@@ -55,16 +51,35 @@ class BucketAddActivity : AppCompatActivity() {
 
         binding.createBucketButton.setOnClickListener {
 
+            if(checkIfEmpty(
+                binding.nameEditText.text.toString(),
+                binding.thoughtsEditText.text.toString(),
+                binding.categoryChipGroup.isSingleSelection,
+                binding.fixedDateTextView.text.toString()
+            )){
+                return@setOnClickListener
+            }
+
+
             viewModel.insert(
                     binding.nameEditText.text.toString(),
                     binding.thoughtsEditText.text.toString(),
                     categoryTitle,
                     viewModel.livedate.value!!
             )
-            Toast.makeText(this, "Inserted Successfully!! + " + categoryTitle, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Created Successfully!!", Toast.LENGTH_SHORT).show()
             finish()
 
         }
 
     }
+
+    fun checkIfEmpty(name:String, thoughts:String, chipChecked:Boolean, date:String):Boolean{
+        if(name.isNullOrEmpty() || thoughts.isNullOrEmpty() || !chipChecked || date.isNullOrEmpty()){
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+            return true
+        }
+        return false
+    }
+
 }

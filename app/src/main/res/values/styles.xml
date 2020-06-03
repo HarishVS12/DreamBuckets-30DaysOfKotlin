@@ -6,31 +6,54 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
     </style>
 
 
+    <style name="CategoryStyles">
 
-        <style name="customCardView" parent="@style/Widget.MaterialComponents.CardView">
-            <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceOverlay</item>
-        </style>
-
-
-        <style name="CustomShapeAppearanceOverlay" parent="">
-            <item name="cornerFamily">rounded</item>
-            <item name="cornerSizeTopRight">0dp</item>
-            <item name="cornerSizeTopLeft">0dp</item>
-            <item name="cornerSizeBottomRight">16dp</item>
-            <item name="cornerSizeBottomLeft">16dp</item>
-        </style>
-
-
-<!--    <style name="CategoryStyles">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/textViewTextSize</item>
-        <item name="fontFamily">monospace</item>
-        <item name="android:paddingLeft">@dimen/largePadding</item>
-        <item name="android:paddingRight">@dimen/largePadding</item>
-    </style>-->
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/baloo</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingStart">@dimen/largePadding</item>
+        <item name="android:layout_marginTop">@dimen/largeMargin</item>
+
+    </style>
+
+    <style name="CategoryEditTextStyles">
+
+        <item name="android:textSize">@dimen/EditTextSize</item>
+        <item name="fontFamily">@font/baloo</item>
+        <item name="background">@android:color/white</item>
+        <item name="hintTextColor">@color/seperatorLineColor</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingStart">@dimen/largePadding</item>
+        <item name="android:layout_marginStart">@dimen/largeMargin</item>
+        <item name="android:layout_marginEnd">@dimen/largeMargin</item>
+        <item name="android:layout_marginTop">@dimen/largeMargin</item>
+
+    </style>
+
+    <style name="CategoryChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:checkable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textColor">@color/chip_text_color_change</item>
+        <item name="chipBackgroundColor">@color/chip_state_change</item>
+        <item name="chipIcon">@drawable/chip_icon_state</item>
+        <item name="android:layout_marginStart">@dimen/largePadding</item>
+        <item name="android:textAppearance">@style/ChipTextAppearance</item>
+    </style>
+
+
+    <style name="ChipTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/baloo</item>
+    </style>
+
+
 
 </resources>

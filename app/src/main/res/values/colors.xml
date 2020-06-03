@@ -7,4 +7,5 @@
     <color name="backgroundColor">#383242</color>
     <color name="backgroundColorLight">#60616D</color>
     <color name="seperatorLineColor">#9EA0A6</color>
+    <color name="cardColor">#3459E6</color>
 </resources>

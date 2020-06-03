@@ -77,8 +77,6 @@ dependencies {
     //Lottie
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
-    //Optional CardView
-    implementation 'com.github.captain-miao:optroundcardview:1.0.0'
 
 
 }

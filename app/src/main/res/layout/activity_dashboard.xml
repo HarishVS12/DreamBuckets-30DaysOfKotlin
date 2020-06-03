@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.harish.dreambuckets.viewmodels.DashboardViewModel" />
     </data>
 
 

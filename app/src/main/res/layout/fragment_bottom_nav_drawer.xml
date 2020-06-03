@@ -8,17 +8,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/cardColor"
+        >
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_appbar_menu"
+            android:background="@color/cardColor"
             android:layout_gravity="bottom"
             android:layout_marginTop="12dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

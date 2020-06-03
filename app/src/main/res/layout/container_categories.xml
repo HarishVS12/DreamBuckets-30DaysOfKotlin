@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        android:background="#4B61B5"
+        android:background="@color/cardColor"
         >
 
         <ImageView

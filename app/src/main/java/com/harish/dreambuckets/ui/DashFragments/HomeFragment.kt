@@ -14,6 +14,7 @@ import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 import com.harish.dreambuckets.databinding.FragmentHomeBinding
+import com.harish.dreambuckets.ui.DashboardActivity
 
 class HomeFragment : Fragment() {
 
@@ -51,5 +52,6 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
 
 }

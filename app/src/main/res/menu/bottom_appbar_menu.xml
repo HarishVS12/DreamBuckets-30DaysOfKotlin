@@ -6,7 +6,8 @@
         android:id="@+id/homeFragment"
         android:title="Home"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_home_black"
+        android:icon="@drawable/ic_home_white"
+        app:iconTint="@android:color/white"
         android:orderInCategory="1"
         />
 
@@ -15,7 +16,8 @@
         android:id="@+id/categoriesFragment"
         android:title="Categories"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_categories_black"
-        android:orderInCategory="3"
+        android:icon="@drawable/ic_categ_white"
+        app:iconTint="@android:color/white"
+        android:orderInCategory="2"
         />
 </menu>

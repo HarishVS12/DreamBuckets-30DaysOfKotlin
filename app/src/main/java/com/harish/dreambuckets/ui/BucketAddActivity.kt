@@ -1,5 +1,6 @@
 package com.harish.dreambuckets.ui
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -18,12 +19,16 @@ class BucketAddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBucketAddBinding
     private  var categoryTitle:String?  = ""
     private lateinit var picker: MaterialDatePicker<Long>
-//    private lateinit var month_name: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
+        window.statusBarColor = Color.WHITE
+
+        binding.backButtonImageView.setOnClickListener{
+            finish()
+        }
+
         val viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
         binding.viewModel = viewModel
         binding.setLifecycleOwner(this)

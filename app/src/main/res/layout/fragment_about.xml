@@ -15,6 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         tools:context=".ui.about.AboutFragment">
 
         <com.airbnb.lottie.LottieAnimationView
@@ -36,8 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/fugaz_one"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/muli"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/bucketAnimation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -10,15 +10,18 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardElevation="10dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:cardElevation="4dp"
         android:clickable="true"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/cardColor"
+            android:background="@color/colorWhite"
             android:padding="@dimen/largePadding">
 
             <androidx.constraintlayout.widget.Guideline
@@ -41,54 +44,68 @@
                 android:id="@+id/bucketNameTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:textStyle="bold"
+                android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toEndOf="@id/guideline"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Finish the 30 Days of kotlin" />
+
+            <View
+                android:id="@+id/viewSeperator"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:alpha="0.5"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@color/seperatorLineColor"
+                app:layout_constraintTop_toBottomOf="@id/bucketNameTextView"
+                app:layout_constraintStart_toStartOf="@id/bucketNameTextView"
+                app:layout_constraintEnd_toEndOf="@id/bucketNameTextView"
+                />
+
+
 
             <TextView
                 android:id="@+id/thoughtsTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/baloo"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bucketNameTextView"
+                app:layout_constraintTop_toBottomOf="@id/viewSeperator"
                 tools:text="I just really wanna finish this in around 30 days" />
 
             <TextView
                 android:id="@+id/categoryTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/baloo"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thoughtsTextView"
-                android:textStyle="bold|italic"
                 tools:text="Travel" />
 
             <TextView
                 android:id="@+id/dateTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/baloo"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toEndOf="@id/guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/categoryTextView"
+                android:textColor="@color/cardColor"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/categoryTextView"
                 tools:text="29/05/2020" />
 <!--            android:textColor="@color/colorPrimaryDark"-->
 

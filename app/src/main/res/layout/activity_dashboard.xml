@@ -14,24 +14,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/backgroundColor"
+        android:background="@color/colorWhite"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iconImageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_icon"
-                android:layout_marginStart="@dimen/largeMargin"
-                android:layout_marginEnd="@dimen/smallMargin"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topConstraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/appNameTextView"
-                app:layout_constraintBottom_toBottomOf="@id/appNameTextView"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="10dp"
+                >
 
 
             <TextView
@@ -40,11 +39,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/largeMargin"
                 android:layout_marginTop="@dimen/largeMargin"
-                android:fontFamily="@font/fugaz_one"
+                android:fontFamily="@font/muli"
+                android:padding="4dp"
                 android:text="@string/app_name"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@id/iconImageView"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -53,15 +54,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:alpha="0.25"
+                android:elevation="8dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/seperatorLineColor"
-                android:layout_marginStart="@dimen/largeMargin"
-                android:layout_marginEnd="@dimen/largeMargin"
                 app:layout_constraintTop_toBottomOf="@id/appNameTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 />
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         <fragment
             android:id="@+id/navHostFragment"
@@ -70,8 +70,7 @@
             android:layout_height="0dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation"
-            android:layout_marginTop="@dimen/smallMargin"
-            app:layout_constraintTop_toBottomOf="@id/viewSeperator"
+            app:layout_constraintTop_toBottomOf="@id/topConstraint"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -86,10 +85,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/backgroundColorLight"
+            android:backgroundTint="@color/colorPrimaryDark"
             app:elevation="8dp"
             app:hideOnScroll="true"
             app:menu="@menu/toolbar_menu"
+            app:fabAlignmentMode="center"
             app:navigationIcon="@drawable/ic_nav_icon" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -97,10 +97,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add_white"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="#15AE5C"
+            app:tint="@color/colorWhite"
             app:elevation="12dp"
             app:layout_anchor="@id/appBar" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </layout>

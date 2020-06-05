@@ -45,6 +45,9 @@ This is the project that is made using kotlin for #30DaysOfKotlin conducted by G
       1) Material Components
       2) Lottie
       
+ # APK
+ 
+  Link : [APK Link](https://drive.google.com/file/d/1QnpkyHxqYg95rCdzNvPZSXivR8BKuEbm/view?usp=sharing)
 
 # Contact
 

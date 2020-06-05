@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.harish.dreambuckets.R
@@ -23,6 +24,9 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_dashboard)
+
+        binding.appBar.performShow()
+
         navController = findNavController(R.id.navHostFragment)
         window.statusBarColor = Color.WHITE
         setSupportActionBar(binding.appBar)
@@ -40,6 +44,12 @@ class DashboardActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onResumeFragments() {
+        binding.appBar.performShow()
+        super.onResumeFragments()
+    }
+    
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu,menu)

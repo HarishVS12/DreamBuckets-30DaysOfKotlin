@@ -49,7 +49,7 @@ class DashboardActivity : AppCompatActivity() {
         binding.appBar.performShow()
         super.onResumeFragments()
     }
-    
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu,menu)

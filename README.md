@@ -1,4 +1,7 @@
 # DreamBuckets-30DaysOfKotlin
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 Do you have a lot of dreams to achieve? Do you need to put all your dreams in a bucket and keep it safe?
 DreamBuckets is a bucket list app where it helps you store all your dreams as buckets here in this app all in one place.
@@ -55,6 +58,7 @@ Twitter : [HarishVS_12](https://twitter.com/HarishVS_12)
 
 # License
 
+```
 MIT License
 
 Copyright (c) 2020 HarishVS12
@@ -76,6 +80,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
 
 
 

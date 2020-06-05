@@ -28,6 +28,7 @@ This is the project that is made using kotlin for #30DaysOfKotlin conducted by G
        4) Null Safety
        5) Lambdas
        6) Inheritance
+       7) Backing Properties
           and more...
 
   ### Android Architecture Components

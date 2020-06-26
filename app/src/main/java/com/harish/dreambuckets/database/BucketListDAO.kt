@@ -17,4 +17,7 @@ interface BucketListDAO {
     @Query("Select * from bucket_list where bucket_category=:category")
     fun getBucketsByCategory(category: String) : LiveData<List<BucketList>>
 
+    /*@Query("Delete from bucket_list")
+    fun deleteBucket(position: Int)*/
+
 }

@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
+import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.FragmentListCategoryBinding
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
@@ -40,7 +41,7 @@ class ListCategoryFragment : Fragment() {
                     binding.emptyAnimation.visibility = View.VISIBLE
                 else
                     binding.emptyAnimation.visibility = View.GONE
-                adapter.setWords(it)
+                adapter.setWords(it as MutableList<BucketList>)
             }
         })
 

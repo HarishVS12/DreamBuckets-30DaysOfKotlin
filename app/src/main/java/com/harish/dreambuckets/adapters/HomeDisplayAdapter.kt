@@ -13,6 +13,8 @@ import com.harish.dreambuckets.models.HomeDisplayModel
 class HomeDisplayAdapter() : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplayViewHolder>() {
 
     var arrayList = emptyList<BucketList>()
+
+
     class HomeDisplayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val bucketName = itemView.findViewById<TextView>(R.id.bucketNameTextView)
         val bucketThoughts = itemView.findViewById<TextView>(R.id.thoughtsTextView)
@@ -28,6 +30,12 @@ class HomeDisplayAdapter() : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplay
     fun setWords(bucketLists: List<BucketList>){
         arrayList = bucketLists
         notifyDataSetChanged()
+    }
+
+    fun deleteItem(postion: Int){
+        val arr = arrayList as MutableList<BucketList>
+        arr.removeAt(postion)
+        notifyItemRemoved(postion)
     }
 
     override fun getItemCount(): Int {

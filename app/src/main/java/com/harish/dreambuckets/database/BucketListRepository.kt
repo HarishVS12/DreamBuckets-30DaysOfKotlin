@@ -15,4 +15,8 @@ class BucketListRepository(var bucketListDAO: BucketListDAO){
     suspend fun insertBuckets(buckets: BucketList){
         bucketListDAO.insert(buckets)
     }
+
+   /* suspend fun deleteBucket(){
+        bucketListDAO.deleteBucket()
+    }*/
 }

@@ -12,200 +12,193 @@
     </data>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:orientation="vertical"
-        tools:context=".ui.BucketAddActivity">
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/largeMargin">
-
-            <ImageView
-                android:id="@+id/backButtonImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back"
-                android:layout_marginTop="@dimen/smallMargin"
-                android:layout_gravity="center_vertical"
-                />
-
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/muli"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:text="@string/create_bucket"
-            android:textColor="@android:color/black"
-            android:textSize="22sp" />
-
-        </LinearLayout>
-
-        <View
-            android:id="@+id/viewSeperator"
+            android:id="@+id/rootLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:alpha="0.25"
-            android:layout_marginTop="10dp"
-            android:background="@color/seperatorLineColor"
-            android:elevation="10dp"
-            />
-
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            tools:context=".ui.BucketAddActivity">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/largeMargin">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/nameTextView"
-                    style="@style/CategoryStyles"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/backButtonImageView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/smallMargin"
+                    android:src="@drawable/ic_back" />
 
-                <EditText
-                    android:id="@+id/nameEditText"
-                    android:layout_width="match_parent"
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/white"
-                    android:textColorHint="@color/seperatorLineColor"
-                    style="@style/CategoryEditTextStyles"
-                    android:hint="@string/nameHintCateg"
-                     />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/descTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yourThoughts"
-                    style="@style/CategoryStyles"
-                    />
-
-                <EditText
-                    android:id="@+id/thoughtsEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/white"
-                    android:textColorHint="@color/seperatorLineColor"
-                    style="@style/CategoryEditTextStyles"
-                    android:hint="@string/thoughtsHintCateg"
-                    />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/categoryTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    style="@style/CategoryStyles"
-                    />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/categoryChipGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/largeMargin"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/TravelChip"
-                        android:text="@string/category_travel"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        app:chipIconVisible="true" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/LifeChip"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        android:text="@string/category_life"
-                        app:chipIconVisible="true" />
-
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/LoveChip"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        android:text="@string/category_love"
-                        app:chipIconVisible="true" />
-
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/FoodChip"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        android:text="@string/category_food"
-                        app:chipIconVisible="true" />
-
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/WorkChip"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        android:text="@string/category_work"
-                        app:chipIconVisible="true" />
-
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/PassionChip"
-                        android:text="@string/category_passion"
-                        style="@style/CategoryChipStyle"
-                        tools:textColor="@android:color/black"
-                        app:chipIconVisible="true" />
-
-
-                </com.google.android.material.chip.ChipGroup>
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tragetDateTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/CategoryStyles"
-                    android:text="@string/target_date"
-                 />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/fixedDateTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/CategoryStyles"
-                    android:textSize="22sp"
-                    android:textStyle="normal"
-                    android:hint="@string/fixedDate_hint"
-                    android:textColorHint="@android:color/secondary_text_light_nodisable"
-                    android:text="@{viewModel.livedate}"
-                     />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/createBucketButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@color/secCardColor"
-                    android:layout_marginStart="@dimen/largeMargin"
-                    android:layout_marginEnd="@dimen/largeMargin"
-                    android:padding="12dp"
-                    android:text="@string/create_bucket_button"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/muli"
-                    android:layout_marginBottom="25dp"
-                    app:cornerRadius="6dp" />
+                    android:padding="8dp"
+                    android:text="@string/create_bucket"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+            <View
+                android:id="@+id/viewSeperator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.25"
+                android:background="@color/seperatorLineColor"
+                android:elevation="10dp" />
 
-    </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/nameTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name" />
+
+                    <EditText
+                        android:id="@+id/nameEditText"
+                        style="@style/CategoryEditTextStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="@string/nameHintCateg"
+                        android:textColorHint="@color/seperatorLineColor" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/descTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yourThoughts" />
+
+                    <EditText
+                        android:id="@+id/thoughtsEditText"
+                        style="@style/CategoryEditTextStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="@string/thoughtsHintCateg"
+                        android:textColorHint="@color/seperatorLineColor" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/categoryTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/categoryChipGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/largeMargin"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/TravelChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_travel"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/LifeChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_life"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/LoveChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_love"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/FoodChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_food"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/WorkChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_work"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/PassionChip"
+                            style="@style/CategoryChipStyle"
+                            android:text="@string/category_passion"
+                            app:chipIconVisible="true"
+                            tools:textColor="@android:color/black" />
+
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tragetDateTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/target_date" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/fixedDateTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/fixedDate_hint"
+                        android:text="@{viewModel.livedate}"
+                        android:textColorHint="@android:color/secondary_text_light_nodisable"
+                        android:textSize="22sp"
+                        android:textStyle="normal" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/createBucketButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/largeMargin"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="@dimen/largeMargin"
+                        android:layout_marginBottom="25dp"
+                        android:backgroundTint="@color/secCardColor"
+                        android:fontFamily="@font/muli"
+                        android:padding="12dp"
+                        android:text="@string/create_bucket_button"
+                        android:textColor="@android:color/white"
+                        app:cornerRadius="6dp" />
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
 </layout>

@@ -49,6 +49,12 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
         insertBucketLists(bucketList)
     }
 
+    /*fun deleteBucket(){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteBucket()
+        }
+    }*/
+
     fun getBucketsByCategory(category: String):LiveData<List<BucketList>> {
             return repository.getBucketsByCategory(category)
     }

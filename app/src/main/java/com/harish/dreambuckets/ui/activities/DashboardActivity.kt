@@ -1,14 +1,17 @@
 package com.harish.dreambuckets.ui.activities
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityDashboardBinding
 import com.harish.dreambuckets.ui.BottomNavDrawerFragment
@@ -19,6 +22,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var navController:NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_dashboard)
 
@@ -35,7 +39,13 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         binding.floatingAdd.setOnClickListener {
-            startActivity(Intent(this, BucketAddActivity::class.java))
+            val intent = Intent(this, BucketAddActivity::class.java)
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+            this,
+                binding.floatingAdd,
+                "shared_element_container"
+            )
+            startActivity(intent, options.toBundle())
         }
 
 
@@ -59,5 +69,11 @@ class DashboardActivity : AppCompatActivity() {
                     findNavController(R.id.navHostFragment).navigate(R.id.aboutFragment)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun sharedElementTransition(){
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
     }
 }

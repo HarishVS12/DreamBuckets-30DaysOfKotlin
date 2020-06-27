@@ -5,12 +5,16 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 import com.harish.dreambuckets.databinding.ActivityBucketAddBinding
@@ -23,6 +27,7 @@ class BucketAddActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
+        sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
         window.statusBarColor = Color.WHITE
@@ -92,12 +97,25 @@ class BucketAddActivity : AppCompatActivity() {
             animator.repeatMode = ObjectAnimator.REVERSE
             animator.start()
 
-//            val snack:Snackbar = Snackbar.make(binding.coordinatorLayout, "Please fill all the fields",Snackbar.LENGTH_LONG)
-//            snack.animationMode = Snackbar.ANIMATION_MODE_SLIDE
-//            snack.show()
             return true
         }
         return false
+    }
+
+    fun sharedElementTransition(){
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
+        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
+        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
     }
 
 }

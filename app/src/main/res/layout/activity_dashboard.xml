@@ -9,6 +9,7 @@
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorRootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,6 +101,7 @@
             android:backgroundTint="#15AE5C"
             app:tint="@color/colorWhite"
             app:elevation="12dp"
+            android:transitionName="shared_element_container"
             app:layout_anchor="@id/appBar" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

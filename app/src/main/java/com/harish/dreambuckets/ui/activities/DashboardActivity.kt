@@ -1,20 +1,17 @@
-package com.harish.dreambuckets.ui
+package com.harish.dreambuckets.ui.activities
 
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityDashboardBinding
+import com.harish.dreambuckets.ui.BottomNavDrawerFragment
 
 class DashboardActivity : AppCompatActivity() {
 

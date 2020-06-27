@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.harish.dreambuckets.R
-import com.harish.dreambuckets.ui.DashboardActivity
+import com.harish.dreambuckets.ui.activities.DashboardActivity
 
 private const val DELAYED_MILLIS:Long = 2500
 

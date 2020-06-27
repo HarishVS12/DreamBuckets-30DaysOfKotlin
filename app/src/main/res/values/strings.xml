@@ -18,4 +18,6 @@
     <string name="target_date">Target Date</string>
     <string name="fixedDate_hint">Tap here to select the date</string>
     <string name="create_bucket_button">CREATE BUCKET</string>
+    <string name="AlertDialogTitle">Are you Sure?</string>
+    <string name="AlertDialogMessage">Do you want to delete your dream?</string>
 </resources>

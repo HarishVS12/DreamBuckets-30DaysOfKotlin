@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
             android:orientation="vertical"
-            tools:context=".ui.BucketAddActivity">
+            tools:context=".ui.activities.BucketAddActivity">
 
             <LinearLayout
                 android:layout_width="wrap_content"

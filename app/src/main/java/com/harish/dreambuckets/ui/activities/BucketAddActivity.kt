@@ -1,23 +1,19 @@
-package com.harish.dreambuckets.ui
+package com.harish.dreambuckets.ui.activities
 
 import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.snackbar.Snackbar
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 import com.harish.dreambuckets.databinding.ActivityBucketAddBinding
-import java.text.SimpleDateFormat
-import java.util.*
 
 class BucketAddActivity : AppCompatActivity() {
 

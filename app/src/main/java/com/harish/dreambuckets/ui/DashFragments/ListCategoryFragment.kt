@@ -32,7 +32,7 @@ class ListCategoryFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
         val args = ListCategoryFragmentArgs.fromBundle(requireArguments())
 
-        val adapter = HomeDisplayAdapter()
+        val adapter = HomeDisplayAdapter(requireContext(),viewModel)
 
         viewModel.getBucketsByCategory(args.category).observe(requireActivity(), Observer {
                 buckets ->

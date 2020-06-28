@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.BucketAddActivity" />
+        <activity android:name=".ui.activities.BucketAddActivity">
+        </activity>
         <activity android:name=".ui.activities.DashboardActivity">
         </activity>
 

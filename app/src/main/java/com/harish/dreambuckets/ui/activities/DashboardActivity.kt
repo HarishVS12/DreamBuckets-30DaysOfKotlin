@@ -72,7 +72,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     fun sharedElementTransition(){
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS) //This enables the transition to be performed on this activity
         setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
         window.sharedElementsUseOverlay = false
     }

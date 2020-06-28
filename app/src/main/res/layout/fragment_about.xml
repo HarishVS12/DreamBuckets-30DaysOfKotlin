@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,41 +12,132 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        tools:context=".ui.about.AboutFragment">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/bucketAnimation"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/dreambuckets"
-            app:lottie_loop="false"
-            />
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            tools:context=".ui.about.AboutFragment">
 
-        <TextView
-            android:id="@+id/devNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/muli"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/bucketAnimation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
-            android:text="Developed by Harish. V" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialcardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3">
+
+                <LinearLayout
+                    android:id="@+id/rootCardLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/largeMargin"
+                        android:src="@drawable/developer"
+                        app:civ_border_color="@color/secCardColor"
+                        app:civ_border_width="8dp" />
+
+
+                    <TextView
+                        android:id="@+id/about_developed"
+                        style="@style/aboutTextView"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/about_developed"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/aboutTextView"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:background="@android:color/holo_red_light"
+                        android:padding="4dp"
+                        android:text="@string/about_developer_name"
+                        android:textColor="@android:color/white"
+                        android:textSize="34sp" />
+
+
+                    <TextView
+                        style="@style/aboutTextView"
+                        android:layout_marginTop="@dimen/smallMargin"
+                        android:background="@color/cardColor"
+                        android:padding="4dp"
+                        android:text="@string/about_designation"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp" />
+
+
+                    <View
+                        android:id="@+id/viewSeperator"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="65dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="60dp"
+                        android:background="@color/seperatorLineColor" />
+
+
+                    <TextView
+                        style="@style/aboutTextView"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/largeMargin"
+                        android:layout_marginTop="@dimen/largeMargin"
+                        android:layout_marginRight="@dimen/largeMargin"
+                        android:text="@string/about_follow"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="40dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img_github"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="40dp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_github" />
+
+                        <ImageView
+                            android:id="@+id/img_instagram"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="80dp"
+                            android:elevation="8dp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_instagram" />
+
+                        <ImageView
+                            android:id="@+id/img_gmail"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="80dp"
+                            android:elevation="8dp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_gmail" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

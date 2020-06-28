@@ -1,6 +1,8 @@
 package com.harish.dreambuckets.ui.activities
 
 import android.animation.ObjectAnimator
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -116,6 +118,20 @@ class BucketAddActivity : AppCompatActivity() {
             addTarget(android.R.id.content)
             duration = 250L
         }
+
+        window.sharedElementExitTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
+        window.sharedElementReenterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
     }
+
+
+
 
 }

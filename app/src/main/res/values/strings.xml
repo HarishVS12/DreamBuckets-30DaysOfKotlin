@@ -20,4 +20,10 @@
     <string name="create_bucket_button">CREATE BUCKET</string>
     <string name="AlertDialogTitle">Are you Sure?</string>
     <string name="AlertDialogMessage">Do you want to delete your dream?</string>
+    <string name="about_developed">Developed by</string>
+    <string name="about_developer_name">Harish. V</string>
+    <string name="about_designation">Android Developer</string>
+
+    <string name="about_desc">A developer who likes to think, learn and create.</string>
+    <string name="about_follow">Follow me on:</string>
 </resources>

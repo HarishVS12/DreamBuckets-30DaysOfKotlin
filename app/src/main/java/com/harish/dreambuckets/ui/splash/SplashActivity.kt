@@ -22,7 +22,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
 
-
         Handler().postDelayed(Runnable {
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()

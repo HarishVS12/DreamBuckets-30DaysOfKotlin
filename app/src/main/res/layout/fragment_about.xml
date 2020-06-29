@@ -12,132 +12,127 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/rootCardLinear"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-            tools:context=".ui.about.AboutFragment">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialcardview"
+            <ImageView
+                android:id="@+id/circleDeveloper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/dev_pic"
+                app:civ_border_color="@color/secCardColor"
+                app:civ_border_width="2dp" />
+
+
+            <TextView
+                android:id="@+id/about_developed"
+                style="@style/aboutTextView"
+                android:layout_marginTop="26dp"
+                android:text="@string/about_developed"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/aboutTextView"
+                android:padding="4dp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:background="@color/cardColor"
+                android:text="@string/about_developer_name"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+
+            <TextView
+                style="@style/aboutTextView"
+                android:background="@android:color/holo_red_light"
+                android:padding="4dp"
+                android:layout_gravity="center"
+                android:text="@string/about_designation"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+
+            <View
+                android:id="@+id/viewSeperator"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/seperatorLineColor" />
+
+
+            <TextView
+                style="@style/aboutTextView"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/largeMargin"
+                android:text="@string/about_follow"
+                android:textSize="16sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                app:cardBackgroundColor="@color/colorWhite"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3">
+                android:layout_marginTop="@dimen/smallMargin"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="@dimen/largeMargin"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/rootCardLinear"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/img_github"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="start"
+                    android:drawablePadding="@dimen/largeMargin"
+                    android:drawableLeft="@drawable/about_icon_github"
+                    android:clickable="true"
+                    android:fontFamily="@font/muli"
+                    android:textSize="16sp"
+                    android:text="Fork this app on Github"/>
 
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/largeMargin"
-                        android:src="@drawable/developer"
-                        app:civ_border_color="@color/secCardColor"
-                        app:civ_border_width="8dp" />
 
 
-                    <TextView
-                        android:id="@+id/about_developed"
-                        style="@style/aboutTextView"
-                        android:layout_marginTop="26dp"
-                        android:text="@string/about_developed"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/aboutTextView"
-                        android:layout_marginTop="@dimen/smallMargin"
-                        android:background="@android:color/holo_red_light"
-                        android:padding="4dp"
-                        android:text="@string/about_developer_name"
-                        android:textColor="@android:color/white"
-                        android:textSize="34sp" />
+                <TextView
+                    android:id="@+id/img_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="24dp"
+                    android:drawablePadding="@dimen/largeMargin"
+                    android:drawableLeft="@drawable/about_icon_instagram"
+                    android:clickable="true"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/muli"
+                    android:text="Follow me on Instagram"/>
 
 
-                    <TextView
-                        style="@style/aboutTextView"
-                        android:layout_marginTop="@dimen/smallMargin"
-                        android:background="@color/cardColor"
-                        android:padding="4dp"
-                        android:text="@string/about_designation"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/img_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="24dp"
+                    android:drawablePadding="@dimen/largeMargin"
+                    android:drawableLeft="@drawable/about_icon_email"
+                    android:clickable="true"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/muli"
+                    android:text="Contact Me"/>
 
 
-                    <View
-                        android:id="@+id/viewSeperator"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="65dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="60dp"
-                        android:background="@color/seperatorLineColor" />
+            </LinearLayout>
+
+        </LinearLayout>
 
 
-                    <TextView
-                        style="@style/aboutTextView"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/largeMargin"
-                        android:layout_marginTop="@dimen/largeMargin"
-                        android:layout_marginRight="@dimen/largeMargin"
-                        android:text="@string/about_follow"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="40dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/img_github"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="40dp"
-                            android:clickable="true"
-                            android:src="@drawable/ic_github" />
-
-                        <ImageView
-                            android:id="@+id/img_instagram"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="80dp"
-                            android:elevation="8dp"
-                            android:clickable="true"
-                            android:src="@drawable/ic_instagram" />
-
-                        <ImageView
-                            android:id="@+id/img_gmail"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_marginLeft="80dp"
-                            android:elevation="8dp"
-                            android:clickable="true"
-                            android:src="@drawable/ic_gmail" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

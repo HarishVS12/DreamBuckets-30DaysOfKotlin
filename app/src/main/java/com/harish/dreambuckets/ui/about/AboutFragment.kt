@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.FragmentAboutBinding
+import mehdi.sakout.aboutpage.AboutPage
+import mehdi.sakout.aboutpage.Element
 
 class AboutFragment : Fragment() {
 
@@ -21,29 +23,61 @@ class AboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_about,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_about, container, false)
 
-        binding.imgGithub.setOnClickListener{
-           val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("http://github.com/HarishVS12")
-            startActivity(intent)
+        binding.imgGithub.setOnClickListener {
+            val gitIntent = Intent(Intent.ACTION_VIEW)
+            gitIntent.data = Uri.parse("http://github.com/HarishVS12")
+            startActivity(gitIntent)
         }
 
-        binding.imgInstagram.setOnClickListener{
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://www.instagram.com/_harish_vs_/")
-            startActivity(intent)
+        binding.imgInstagram.setOnClickListener {
+            val instaIntent = Intent(Intent.ACTION_VIEW)
+            instaIntent.data = Uri.parse("https://www.instagram.com/_harish_vs_/")
+            startActivity(instaIntent)
         }
 
-        binding.imgGmail.setOnClickListener {
-            val intent = Intent().apply {
+        binding.imgEmail.setOnClickListener {
+            val mailIntent = Intent().apply {
                 setAction(Intent.ACTION_SENDTO)
                 data = Uri.parse("mailto:")
                 putExtra(Intent.EXTRA_EMAIL, arrayOf("harishthedev@gmail.com"))
-                putExtra(Intent.EXTRA_SUBJECT,"Regd Dream Buckets Application")
+                putExtra(Intent.EXTRA_SUBJECT, "Regd Dream Buckets Application")
             }
-            startActivity(intent)
+            startActivity(mailIntent)
         }
+
+      /*  val gitElement = Element()
+        gitElement.apply {
+            iconDrawable = R.drawable.about_icon_github
+            title = "Fork this app on Github"
+            intent = gitIntent
+        }
+
+        val instaElement = Element()
+        instaElement.apply {
+            iconDrawable = R.drawable.about_icon_instagram
+            title = "Follow me on Instagram"
+            intent = instaIntent
+        }
+
+        val mailElement = Element()
+        mailElement.apply {
+            iconDrawable = R.drawable.about_icon_email
+            title = "Contact me"
+            intent = mailIntent
+        }
+
+        val aboutPage = AboutPage(requireContext())
+        aboutPage.apply {
+            isRTL(false)
+            setDescription((getText(R.string.about_dev)))
+            setImage(R.drawable.dev_pic)
+            addGroup("Connect with me")
+            addItem(mailElement)
+            addItem(gitElement)
+            addItem(instaElement)
+        }*/
 
         return binding.root
     }

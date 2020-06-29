@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dream Buckets</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -25,5 +26,8 @@
     <string name="about_designation">Android Developer</string>
 
     <string name="about_desc">A developer who likes to think, learn and create.</string>
-    <string name="about_follow">Follow me on:</string>
+    <string name="about_follow">Connect with me</string>
+
+    <string name="about_dev">Developed by\n<b><u>Harish. V</u></b>\n</string>
+    <string name="about_group"><b>Follow me on</b></string>
 </resources>

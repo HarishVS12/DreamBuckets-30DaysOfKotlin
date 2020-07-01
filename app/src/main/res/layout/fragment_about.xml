@@ -96,7 +96,7 @@
                     android:clickable="true"
                     android:fontFamily="@font/muli"
                     android:textSize="16sp"
-                    android:text="Fork this app on Github"/>
+                    android:text="Star and Fork this app on Github"/>
 
 
 

@@ -11,19 +11,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        >
-
+        android:background="@color/mainBackGroundColor">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingTop="@dimen/largeMargin"
+            android:paddingBottom="@dimen/largeMargin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/emptyAnimation"

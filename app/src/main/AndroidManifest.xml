@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".ui.activities.BucketAddActivity">
         </activity>
-        <activity android:name=".ui.activities.DashboardActivity">
+        <activity
+            android:name=".ui.activities.DashboardActivity">
+
         </activity>
 
         <meta-data

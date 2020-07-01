@@ -33,7 +33,9 @@
     <fragment
         android:id="@+id/listCategoryFragment"
         android:name="com.harish.dreambuckets.ui.DashFragments.ListCategoryFragment"
-        android:label="ListCategoryFragment" >
+        android:label="ListCategoryFragment"
+        tools:layout="@layout/fragment_categories"
+        >
         <argument
             android:name="category"
             app:argType="string" />
@@ -41,5 +43,7 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.harish.dreambuckets.ui.about.AboutFragment"
-        android:label="AboutFragment" />
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about"
+        />
 </navigation>

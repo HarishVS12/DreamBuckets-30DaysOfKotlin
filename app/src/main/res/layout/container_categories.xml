@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        android:background="@color/colorWhite"
+        android:background="@color/cardBgColorHome"
         >
 
         <ImageView
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Travel"
-            android:textColor="@android:color/black"
+            android:textColor="@color/categoriesTextColor"
             android:fontFamily="@font/muli"
             android:textSize="22sp"
             android:layout_marginLeft="4dp"

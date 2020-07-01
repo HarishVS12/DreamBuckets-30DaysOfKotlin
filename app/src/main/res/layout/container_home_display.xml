@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite"
+            android:background="@color/cardBgColorHome"
             android:padding="@dimen/largePadding">
 
             <androidx.constraintlayout.widget.Guideline
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@android:color/black"
+                android:textColor="@color/cardTextColor"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/guideline"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="@dimen/smallMargin"
                 android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@android:color/black"
+                android:textColor="@color/cardTextColor"
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewSeperator"
@@ -88,7 +88,7 @@
                 android:layout_marginTop="@dimen/smallMargin"
                 android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@android:color/black"
+                android:textColor="@color/cardTextColor"
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thoughtsTextView"
@@ -101,7 +101,7 @@
                 android:layout_marginTop="@dimen/smallMargin"
                 android:fontFamily="@font/muli"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@color/cardColor"
+                android:textColor="@color/cardSpecialTextColor"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/guideline"

@@ -5,11 +5,41 @@
     <color name="colorAccent">#FFC107</color>
 
     <color name="backgroundColor">#383242</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="mainBackGroundColor">#FFFFFF</color>
     <color name="backgroundColorLight">#60616D</color>
     <color name="seperatorLineColor">#9EA0A6</color>
     <color name="cardColor">#3459E6</color>
     <color name="secCardColor">#08BC5C</color>
 
-<!--    #3da46d-->
+    <color name="textColor">#000000</color>
+
+    <color name="toolbarColor">#FFFFFF</color>
+    <color name="toolbarSeperator">@color/seperatorLineColor</color>
+
+    <!--HomeFragment-->
+    <color name="cardBgColorHome">#FFFFFF</color>
+    <color name="cardTextColor">@android:color/black</color>
+    <color name="cardSpecialTextColor">#3459E6</color>
+
+    <!-- CategoriesFragment -->
+    <color name="categoriesTextColor">@android:color/black</color>
+
+    <!-- AboutFragment -->
+    <color name="normalTextView">#000000</color>
+
+    <!-- TextViewBG Info -->
+    <color name="textViewBg">#3459E6</color>
+    <color name="textViewSubBG">@android:color/holo_red_light</color>
+
+    <!-- Error Color -->
+    <color name="errorColorNight">@android:color/holo_red_dark</color>
+
+    <!-- AlertDialog Color-->
+    <color name="alertDialogColor">#FFFFFF</color>
+
+    <!-- Add Act -->
+    <color name="buttonBGColor">#08BC5C</color>
+
+    <!-- Chip BG color -->
+    <color name="chipBGColor">#08BC5C</color>
 </resources>

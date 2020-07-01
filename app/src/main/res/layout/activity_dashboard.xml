@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/colorWhite"
+        android:background="@color/mainBackGroundColor"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
                 android:id="@+id/topConstraint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/toolbarColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
                 android:padding="4dp"
                 android:text="@string/app_name"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:textColor="@color/textColor"
                 android:textSize="21sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
                 android:alpha="0.25"
                 android:elevation="8dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/seperatorLineColor"
+                android:background="@color/toolbarSeperator"
                 app:layout_constraintTop_toBottomOf="@id/appNameTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/secCardColor"
             app:elevation="8dp"
             app:hideOnScroll="true"
             app:menu="@menu/toolbar_menu"
@@ -99,8 +99,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add_white"
             android:backgroundTint="#15AE5C"
-            app:tint="@color/colorWhite"
-            app:elevation="12dp"
+            app:tint="@color/mainBackGroundColor"
+            app:elevation="6dp"
             android:transitionName="shared_element_container"
             app:layout_anchor="@id/appBar" />
 

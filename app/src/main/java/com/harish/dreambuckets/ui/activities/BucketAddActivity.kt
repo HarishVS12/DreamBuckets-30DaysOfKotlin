@@ -11,6 +11,7 @@ import android.view.View
 import android.view.Window
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
@@ -32,7 +33,17 @@ class BucketAddActivity : AppCompatActivity() {
         sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
-        window.statusBarColor = Color.WHITE
+
+
+        if(DashboardActivity.isNightMode){
+            binding.backButtonImageView.setImageResource(R.drawable.ic_back_night)
+            window.statusBarColor = Color.BLACK
+
+        }else{
+            binding.backButtonImageView.setImageResource(R.drawable.ic_back)
+            window.statusBarColor = Color.WHITE
+        }
+
 
         binding.backButtonImageView.setOnClickListener{
             finish()
@@ -93,7 +104,7 @@ class BucketAddActivity : AppCompatActivity() {
         if(name.isNullOrEmpty() || thoughts.isNullOrEmpty() || !chipChecked || date.isNullOrEmpty()){
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
 
-            val animator = ObjectAnimator.ofArgb(binding.createBucketButton, "backgroundColor", getColor(R.color.secCardColor), Color.RED)
+            val animator = ObjectAnimator.ofArgb(binding.createBucketButton, "backgroundColor", getColor(R.color.chipBGColor), getColor(R.color.errorColorNight))
             animator.duration = 500
             animator.repeatCount = 3
             animator.repeatMode = ObjectAnimator.REVERSE

@@ -20,15 +20,17 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = DataBindingUtil
-            .inflate(inflater,R.layout.fragment_home,container,false)
+            .inflate(inflater, R.layout.fragment_home, container, false)
 
         val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
 
 
-        val adapter = HomeDisplayAdapter(requireContext(),viewModel)
+        val adapter = HomeDisplayAdapter(requireContext(), viewModel)
         viewModel.bucketLists.observe(requireActivity(), androidx.lifecycle.Observer { buckets ->
             buckets?.let {
                 if (buckets.isEmpty())
@@ -46,7 +48,7 @@ class HomeFragment : Fragment() {
             homeRecyclerView.adapter = adapter
             homeRecyclerView.setHasFixedSize(true)
             homeRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-            val item = ItemTouchHelper(SwipeToDelete(adapter))
+            val item = ItemTouchHelper(SwipeToDelete(adapter,requireActivity()))
             item.attachToRecyclerView(homeRecyclerView)
         }
 

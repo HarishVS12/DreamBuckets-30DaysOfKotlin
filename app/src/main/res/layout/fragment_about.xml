@@ -46,7 +46,7 @@
                 android:padding="4dp"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/smallMargin"
-                android:background="@color/cardColor"
+                android:background="@color/textViewBg"
                 android:text="@string/about_developer_name"
                 android:textColor="@android:color/white"
                 android:textSize="30sp" />
@@ -54,11 +54,11 @@
 
             <TextView
                 style="@style/aboutTextView"
-                android:background="@android:color/holo_red_light"
+                android:background="@color/textViewSubBG"
                 android:padding="4dp"
                 android:layout_gravity="center"
                 android:text="@string/about_designation"
-                android:textColor="@color/colorWhite"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
 
@@ -67,6 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="@dimen/largeMargin"
+                android:layout_marginStart="@dimen/largeMargin"
                 android:background="@color/seperatorLineColor" />
 
 
@@ -91,7 +93,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:drawablePadding="@dimen/largeMargin"
-                    android:drawableLeft="@drawable/about_icon_github"
                     android:clickable="true"
                     android:fontFamily="@font/muli"
                     android:textSize="16sp"
@@ -107,7 +108,6 @@
                     android:layout_gravity="start"
                     android:layout_marginTop="24dp"
                     android:drawablePadding="@dimen/largeMargin"
-                    android:drawableLeft="@drawable/about_icon_instagram"
                     android:clickable="true"
                     android:textSize="16sp"
                     android:fontFamily="@font/muli"
@@ -122,7 +122,6 @@
                     android:layout_gravity="start"
                     android:layout_marginTop="24dp"
                     android:drawablePadding="@dimen/largeMargin"
-                    android:drawableLeft="@drawable/about_icon_email"
                     android:clickable="true"
                     android:textSize="16sp"
                     android:fontFamily="@font/muli"

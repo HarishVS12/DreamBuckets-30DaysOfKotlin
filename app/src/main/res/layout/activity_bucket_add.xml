@@ -16,7 +16,7 @@
             android:id="@+id/rootLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite"
+            android:background="@color/mainBackGroundColor"
             android:orientation="vertical"
             tools:context=".ui.activities.BucketAddActivity">
 
@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="@dimen/smallMargin"
-                    android:src="@drawable/ic_back" />
+                    />
 
 
                 <TextView
@@ -43,7 +43,7 @@
                     android:fontFamily="@font/muli"
                     android:padding="8dp"
                     android:text="@string/create_bucket"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/textColor"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -80,7 +80,6 @@
                         style="@style/CategoryEditTextStyles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/white"
                         android:hint="@string/nameHintCateg"
                         android:textColorHint="@color/seperatorLineColor" />
 
@@ -96,7 +95,6 @@
                         style="@style/CategoryEditTextStyles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/white"
                         android:hint="@string/thoughtsHintCateg"
                         android:textColorHint="@color/seperatorLineColor" />
 
@@ -190,7 +188,7 @@
                         android:layout_marginTop="40dp"
                         android:layout_marginEnd="@dimen/largeMargin"
                         android:layout_marginBottom="25dp"
-                        android:backgroundTint="@color/secCardColor"
+                        android:backgroundTint="@color/buttonBGColor"
                         android:fontFamily="@font/muli"
                         android:padding="12dp"
                         android:text="@string/create_bucket_button"

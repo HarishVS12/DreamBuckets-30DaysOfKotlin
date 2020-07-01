@@ -2,10 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
-        android:id="@+id/aboutFragment"
-        android:icon="@drawable/ic_about"
-        android:title="@string/title_about"
-        app:showAsAction="never" />
+        android:id="@+id/darkModeMenu"
+        android:icon="@drawable/ic_dark_mode"
+        android:title="Enable Dark Mode"
+        app:showAsAction="ifRoom" />
+
+
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/ic_about"
+            android:title="@string/title_about"
+            app:showAsAction="ifRoom" />
+
 
 </menu>

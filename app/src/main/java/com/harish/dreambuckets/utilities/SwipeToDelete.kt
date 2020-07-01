@@ -1,6 +1,7 @@
 package com.harish.dreambuckets.utilities
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,15 +9,18 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
+import com.harish.dreambuckets.ui.activities.DashboardActivity
 
 private const val TAG = "SWIPED"
 
-class SwipeToDelete(var adapter: HomeDisplayAdapter) : ItemTouchHelper.SimpleCallback(
+class SwipeToDelete(var adapter: HomeDisplayAdapter,var context:Context) : ItemTouchHelper.SimpleCallback(
     0,
     ItemTouchHelper.LEFT
 ) {
@@ -27,7 +31,11 @@ class SwipeToDelete(var adapter: HomeDisplayAdapter) : ItemTouchHelper.SimpleCal
 
     init {
         icon = ContextCompat.getDrawable(adapter.context, R.drawable.ic_delete)
-        background = ColorDrawable(Color.RED)
+        if(DashboardActivity.isNightMode) {
+            background = ColorDrawable(getColor(context,R.color.errorColorNight))
+        }else{
+            background = ColorDrawable(Color.RED)
+        }
     }
 
     override fun onChildDraw(

@@ -17,6 +17,7 @@ import mehdi.sakout.aboutpage.Element
 
 class AboutFragment : Fragment() {
 
+    //This is the about fragment
 
     private lateinit var binding: FragmentAboutBinding
 

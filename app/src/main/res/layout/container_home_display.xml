@@ -35,7 +35,7 @@
                 android:id="@+id/bucketsImageView"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                tools:src="@mipmap/ic_bucket_icon"
+                android:src="@mipmap/ic_bucket_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

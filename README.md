@@ -18,6 +18,8 @@ This is the project that is made using kotlin for #30DaysOfKotlin conducted by G
 2) Put your thoughts on it and specify a category in which your dream falls into.
 3) Specify a date on which you wish to achieve it.
 4) Categorized view to filter your dreams.
+5) Swipe to delete your dream.
+6) Added Dark mode.
 
 **More Features coming soon...**
 

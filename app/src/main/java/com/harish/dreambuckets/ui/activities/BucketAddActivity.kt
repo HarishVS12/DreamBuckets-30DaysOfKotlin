@@ -1,17 +1,17 @@
 package com.harish.dreambuckets.ui.activities
 
 import android.animation.ObjectAnimator
-import android.app.ActivityOptions
-import android.content.Intent
-import android.graphics.Color
+import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
@@ -19,35 +19,54 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
-import com.harish.dreambuckets.viewmodels.BucketListViewModel
 import com.harish.dreambuckets.databinding.ActivityBucketAddBinding
+import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
+@RequiresApi(Build.VERSION_CODES.M)
 class BucketAddActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBucketAddBinding
     private  var categoryTitle:String?  = ""
     private lateinit var picker: MaterialDatePicker<Long>
+    private lateinit var imageUriString: String
 
-    @RequiresApi(Build.VERSION_CODES.M)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         sharedElementTransition()
         super.onCreate(savedInstanceState)
+        clearLightStatusBar(window.decorView)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
-
-
         if(DashboardActivity.isNightMode){
-            binding.backButtonImageView.setImageResource(R.drawable.ic_back_night)
-            window.statusBarColor = Color.BLACK
-
+            binding.toolbar.setNavigationIcon(R.drawable.ic_back_night)
         }else{
-            binding.backButtonImageView.setImageResource(R.drawable.ic_back)
-            window.statusBarColor = Color.WHITE
+            binding.toolbar.setNavigationIcon(R.drawable.ic_back)
         }
 
 
-        binding.backButtonImageView.setOnClickListener{
-            finish()
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
         }
+
+
+        //This can be called before an activity gets created but go down
+        val openDocument = registerForActivityResult(ActivityResultContracts.OpenDocument()){
+                uri: Uri? ->
+            binding.imageView.setImageURI(uri)
+            imageUriString = uri.toString()
+            binding.imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+
+
+
+        binding.addPhotoFAB.setOnClickListener {
+            //This can only be called once the activity gets created
+            openDocument.launch(Array<String>(1){"image/*"})
+        }
+
 
         val viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
         binding.viewModel = viewModel
@@ -87,11 +106,12 @@ class BucketAddActivity : AppCompatActivity() {
 
 
             viewModel.insert(
-                    binding.nameEditText.text.toString(),
-                    binding.thoughtsEditText.text.toString(),
-                    categoryTitle,
-                    viewModel.livedate.value!!
-            )
+                binding.nameEditText.text.toString(),
+                binding.thoughtsEditText.text.toString(),
+                categoryTitle,
+                viewModel.livedate.value!!,
+                imageUriString
+             )
             Toast.makeText(this, "Created Successfully!!", Toast.LENGTH_SHORT).show()
             finish()
 
@@ -101,7 +121,7 @@ class BucketAddActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkIfEmpty(name:String, thoughts:String, chipChecked:Boolean, date:String):Boolean{
-        if(name.isNullOrEmpty() || thoughts.isNullOrEmpty() || !chipChecked || date.isNullOrEmpty()){
+        if(name.isNullOrEmpty() || thoughts.isNullOrEmpty() || !chipChecked || date.isNullOrEmpty() || imageUriString.isNullOrEmpty()){
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
 
             val animator = ObjectAnimator.ofArgb(binding.createBucketButton, "backgroundColor", getColor(R.color.chipBGColor), getColor(R.color.errorColorNight))
@@ -142,6 +162,11 @@ class BucketAddActivity : AppCompatActivity() {
 
     }
 
+    fun clearLightStatusBar(@NonNull view: View) {
+        var flags = view.systemUiVisibility
+        flags = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        view.systemUiVisibility = flags
+    }
 
 
 

@@ -2,6 +2,7 @@ package com.harish.dreambuckets.ui
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -36,6 +37,8 @@ class BottomNavDrawerFragment : BottomSheetDialogFragment() {
 */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return item.onNavDestinationSelected(findNavController())
+
+
     }
 
 }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.harish.dreambuckets">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_bucket_icon"
@@ -16,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.BucketAddActivity">
+        <activity
+            android:name=".ui.activities.BucketAddActivity"
+            android:parentActivityName=".ui.activities.DashboardActivity"
+            android:screenOrientation="portrait"
+            >
         </activity>
         <activity
             android:name=".ui.activities.DashboardActivity">

@@ -37,12 +37,13 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
     }
 
     fun insert(bucketName: String, bucketThoughts: String,
-               bucketCategory: String?, targetDate: String) {
+               bucketCategory: String?, targetDate: String, imageUri: String) {
         val bucketList = BucketList(
             bucketName,
             bucketThoughts,
             bucketCategory!!,
-            targetDate
+            targetDate,
+            imageUri
         )
 
         insertBucketLists(bucketList)

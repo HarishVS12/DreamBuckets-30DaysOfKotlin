@@ -17,6 +17,9 @@
     <color name="toolbarColor">#424242</color>
     <color name="toolbarSeperator">#424242</color>
 
+    <!-- Common -->
+    <color name="toolbarColorCommon">#000000</color>
+
     <!--HomeFragment-->
     <color name="cardBgColorHome">#03121212</color>
     <color name="cardTextColor">@android:color/white</color>

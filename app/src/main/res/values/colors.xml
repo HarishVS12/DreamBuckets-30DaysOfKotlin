@@ -13,8 +13,12 @@
 
     <color name="textColor">#000000</color>
 
-    <color name="toolbarColor">#FFFFFF</color>
+    <color name="toolbarColorCommon">#FFFFFF</color>
     <color name="toolbarSeperator">@color/seperatorLineColor</color>
+
+    <!-- Common -->
+    <color name="toolbarColor">#FFFFFF</color>
+
 
     <!--HomeFragment-->
     <color name="cardBgColorHome">#FFFFFF</color>

@@ -85,5 +85,19 @@
 
     </style>
 
+    <style name="expandedTitleTextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/muli</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="shrinkedTextAppearance">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/muli</item>
+        <item name="android:textSize">@dimen/EditTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
 
 </resources>

@@ -30,4 +30,5 @@
 
     <string name="about_dev">Developed by\n<b><u>Harish. V</u></b>\n</string>
     <string name="about_group"><b>Follow me on</b></string>
+    <string name="add_activity_title">Create Bucket</string>
 </resources>

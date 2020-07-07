@@ -16,13 +16,15 @@ data class BucketList(
     @ColumnInfo(name = "bucket_category")
     var category: String,
     @ColumnInfo(name = "traget_date")
-    var bucketTargetDate: String
+    var bucketTargetDate: String,
+    @ColumnInfo(name = "image_uri")
+    var bucketImageUri: String
 ){
     @Ignore
     constructor(bucketName: String, bucketThoughts: String,
-                bucketCategory: String, targetDate: String) : this(
+                bucketCategory: String, targetDate: String, bucketImageUri: String) : this(
             id=0, bucketName = bucketName,bucketThoughts = bucketThoughts,
-        category = bucketCategory, bucketTargetDate = targetDate)
+        category = bucketCategory, bucketTargetDate = targetDate, bucketImageUri = bucketImageUri)
 
 
 }

@@ -3,12 +3,15 @@ package com.harish.dreambuckets.adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.database.BucketList
@@ -26,6 +29,7 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
         val bucketThoughts = itemView.findViewById<TextView>(R.id.thoughtsTextView)
         val category = itemView.findViewById<TextView>(R.id.categoryTextView)
         val date = itemView.findViewById<TextView>(R.id.dateTextView)
+        val bucketImage = itemView.findViewById<ImageView>(R.id.bucketsImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDisplayViewHolder {
@@ -54,7 +58,7 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
             holder.bucketThoughts.text = arr[position].bucketThoughts
             holder.category.text = "CATEGORY: ${arr[position].category}"
             holder.date.text = "TARGET DATE: ${arr[position].bucketTargetDate}"
-
+            holder.bucketImage.setImageURI(Uri.parse(arr[position].bucketImageUri))
     }
 
  /*   fun toast(message:String){

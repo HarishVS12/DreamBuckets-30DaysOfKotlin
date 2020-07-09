@@ -77,10 +77,7 @@ class DashboardActivity : AppCompatActivity() {
 
     }
 
-    override fun onResumeFragments() {
-        binding.appBar.performShow()
-        super.onResumeFragments()
-    }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

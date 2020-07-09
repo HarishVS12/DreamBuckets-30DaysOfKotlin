@@ -1,6 +1,8 @@
 package com.harish.dreambuckets.ui.activities
 
 import android.animation.ObjectAnimator
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -8,7 +10,9 @@ import android.view.View
 import android.view.Window
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +24,10 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityBucketAddBinding
+import com.harish.dreambuckets.utilities.PickImage
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
+
+private const val PICK_IMAGE = 1
 
 @RequiresApi(Build.VERSION_CODES.M)
 class BucketAddActivity : AppCompatActivity() {
@@ -28,7 +35,7 @@ class BucketAddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBucketAddBinding
     private  var categoryTitle:String?  = ""
     private lateinit var picker: MaterialDatePicker<Long>
-    private lateinit var imageUriString: String
+    private  var imageUriString: String = ""
 
 
 
@@ -61,10 +68,11 @@ class BucketAddActivity : AppCompatActivity() {
         }
 
 
-
         binding.addPhotoFAB.setOnClickListener {
-            //This can only be called once the activity gets created
-            openDocument.launch(Array<String>(1){"image/*"})
+            val intent = Intent()
+            intent.action = Intent.ACTION_OPEN_DOCUMENT
+            intent.type = "image/*"
+            startActivityForResult(Intent.createChooser(intent,"Pick a image"),PICK_IMAGE)
         }
 
 
@@ -119,10 +127,23 @@ class BucketAddActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode== PICK_IMAGE && resultCode== Activity.RESULT_OK){
+            binding.imageView.setImageURI(data?.data)
+            imageUriString = data?.data.toString()
+            binding.imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+    }
+
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkIfEmpty(name:String, thoughts:String, chipChecked:Boolean, date:String):Boolean{
         if(name.isNullOrEmpty() || thoughts.isNullOrEmpty() || !chipChecked || date.isNullOrEmpty() || imageUriString.isNullOrEmpty()){
+
+
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+
+
 
             val animator = ObjectAnimator.ofArgb(binding.createBucketButton, "backgroundColor", getColor(R.color.chipBGColor), getColor(R.color.errorColorNight))
             animator.duration = 500

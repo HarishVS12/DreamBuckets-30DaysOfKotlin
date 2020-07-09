@@ -102,7 +102,7 @@ class SwipeToDelete(var adapter: HomeDisplayAdapter,var context:Context) : ItemT
         val alertDialogBuilder = AlertDialog.Builder(adapter.context, R.style.AlertDialogTheme)
         alertDialogBuilder
             .setTitle(adapter.context.getString(R.string.AlertDialogTitle))
-            .setIcon(R.drawable.ic_icon)
+            .setIcon(R.mipmap.ic_bucket_icon_round)
             .setMessage(adapter.context.getString(R.string.AlertDialogMessage))
             .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->
                 adapter.notifyItemChanged(position)

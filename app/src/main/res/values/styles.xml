@@ -63,16 +63,13 @@
     </style>
 
     <style name="positiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:layout_marginEnd">20dp</item>
-        <item name="android:backgroundTint">@android:color/holo_red_light</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/cardColor</item>
 <!--        <item name="android:backgroundTint">@android:color/holo_red_light</item>-->
     </style>
 
     <style name="negativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:layout_marginEnd">20dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:backgroundTint">@color/cardColor</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/cardColor</item>
     </style>
 
     <style name="aboutTextView">

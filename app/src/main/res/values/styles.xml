@@ -85,6 +85,7 @@
     <style name="expandedTitleTextAppearance">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">@font/muli</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">32sp</item>
     </style>
 

@@ -28,6 +28,7 @@
             >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingtoolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
@@ -122,6 +123,8 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/nameTextView"
                         style="@style/CategoryStyles"
+                        android:drawableLeft="@drawable/ic_name_add_activity"
+                        android:drawablePadding="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/name" />
@@ -139,7 +142,10 @@
                         style="@style/CategoryStyles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/yourThoughts" />
+                        android:text="@string/yourThoughts"
+                        android:drawablePadding="6dp"
+                        android:drawableLeft="@drawable/ic_thoughts_add_activity"
+                        />
 
                     <EditText
                         android:id="@+id/thoughtsEditText"
@@ -154,6 +160,8 @@
                         style="@style/CategoryStyles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_categories_add_activity"
+                        android:drawablePadding="6dp"
                         android:text="@string/category" />
 
                     <com.google.android.material.chip.ChipGroup
@@ -217,6 +225,9 @@
                         style="@style/CategoryStyles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawablePadding="6dp"
+                        android:clickable="true"
+                        android:drawableLeft="@drawable/ic_targetdate_add_activtiy"
                         android:text="@string/target_date" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -228,7 +239,25 @@
                         android:text="@{viewModel.livedate}"
                         android:textColorHint="@android:color/secondary_text_light_nodisable"
                         android:textSize="22sp"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackground"
                         android:textStyle="normal" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/dreamLevelTextView"
+                        style="@style/CategoryStyles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="6dp"
+                        android:drawableLeft="@drawable/ic_dreamlevel_add_activity"
+                        android:text="@string/dream_level" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/dreamLevelRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/createBucketButton"
@@ -242,7 +271,6 @@
                         android:backgroundTint="@color/buttonBGColor"
                         android:fontFamily="@font/muli"
                         android:padding="12dp"
-                        android:transitionName="shared_element_container"
                         android:text="@string/create_bucket_button"
                         android:textColor="@android:color/white"
                         app:cornerRadius="6dp" />

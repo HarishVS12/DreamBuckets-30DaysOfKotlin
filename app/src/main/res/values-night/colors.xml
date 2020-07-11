@@ -45,7 +45,15 @@
 
     <!-- Add Act -->
     <color name="buttonBGColor">#BB86FC</color>
+    <color name="addCardColor">#424242</color>
 
     <!-- Chip BG color -->
     <color name="chipBGColor">#BB86FC</color>
+
+
+    <!-- Level Colors -->
+    <color  name="levelcolor1">#90caf9</color>
+    <color  name="levelcolor2">#ffcc80</color>
+    <color  name="levelcolor3">#f48fb1</color>
+
 </resources>

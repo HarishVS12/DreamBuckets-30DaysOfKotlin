@@ -10,11 +10,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         app:cardElevation="4dp"
-        android:padding="@dimen/largePadding"
         android:clickable="true"
         app:cardCornerRadius="5dp">
 
@@ -22,10 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/cardBgColorHome"
-            android:padding="@dimen/largePadding"
-            >
-
-
+            android:padding="@dimen/largePadding">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -36,15 +33,13 @@
 
             <ImageView
                 android:id="@+id/bucketsImageView"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginRight="@dimen/smallMargin"
                 android:src="@mipmap/ic_bucket_icon"
-                android:layout_marginRight="20dp"
-                android:scaleType="centerCrop"
-                android:padding="@dimen/largePadding"
                 app:layout_constraintRight_toLeftOf="@id/guideline"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -114,7 +109,7 @@
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/categoryTextView"
                 tools:text="29/05/2020" />
-<!--            android:textColor="@color/colorPrimaryDark"-->
+            <!--            android:textColor="@color/colorPrimaryDark"-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

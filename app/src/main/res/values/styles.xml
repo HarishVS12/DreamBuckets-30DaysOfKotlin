@@ -10,6 +10,17 @@
         <item name="elevationOverlayEnabled">false</item>
     </style>
 
+    <style name="AppTheme.statusBarTransparent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+
 
     <style name="CategoryStyles">
 
@@ -94,6 +105,19 @@
         <item name="android:fontFamily">@font/muli</item>
         <item name="android:textSize">@dimen/EditTextSize</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bottomNavTextAppearanceActive">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/muli</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="bottomNavTextAppearanceInActive">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/muli</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 

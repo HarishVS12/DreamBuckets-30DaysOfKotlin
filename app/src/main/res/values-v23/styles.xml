@@ -11,4 +11,15 @@
         <item name="elevationOverlayEnabled">false</item>
 
     </style>
+
+   <!-- <style name="AppTheme.statusBarTransparent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>-->
 </resources>

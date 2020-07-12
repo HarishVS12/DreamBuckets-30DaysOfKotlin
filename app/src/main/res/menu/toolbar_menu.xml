@@ -10,11 +10,7 @@
         app:showAsAction="ifRoom" />
 
 
-        <item
-            android:id="@+id/aboutFragment"
-            android:icon="@drawable/ic_about"
-            android:title="@string/title_about"
-            app:showAsAction="ifRoom" />
+
 
 
 </menu>

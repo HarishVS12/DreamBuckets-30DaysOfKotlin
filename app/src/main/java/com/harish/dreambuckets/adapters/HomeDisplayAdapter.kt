@@ -13,9 +13,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import java.io.FileInputStream
 
 private const val TAG = "SWIPED"
 
@@ -54,11 +56,20 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
     }
 
     override fun onBindViewHolder(holder: HomeDisplayViewHolder, position: Int) {
+
             holder.bucketName.text = arr[position].bucketName
             holder.bucketThoughts.text = arr[position].bucketThoughts
             holder.category.text = "CATEGORY: ${arr[position].category}"
             holder.date.text = "TARGET DATE: ${arr[position].bucketTargetDate}"
-            holder.bucketImage.setImageURI(Uri.parse(arr[position].bucketImageUri))
+
+            Glide
+                .with(context)
+                .load(arr[position].bucketImageUri)
+                .centerCrop()
+                .into(holder.bucketImage)
+
+
+//            holder.bucketImage.setImageURI(Uri.parse(arr[position].bucketImageUri))
     }
 
  /*   fun toast(message:String){

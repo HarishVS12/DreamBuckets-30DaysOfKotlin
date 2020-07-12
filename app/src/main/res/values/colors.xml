@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/cardColor</color>
-    <color name="colorPrimaryDark">@color/secCardColor</color>
+    <color name="colorPrimary">@color/secCardColor</color>
+    <color name="colorPrimaryDark">@android:color/white</color>
     <color name="colorAccent">#FFC107</color>
 
     <color name="backgroundColor">#383242</color>

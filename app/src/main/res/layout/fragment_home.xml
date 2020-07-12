@@ -13,20 +13,43 @@
         android:layout_height="match_parent"
         android:background="@color/mainBackGroundColor">
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homeRecyclerView"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/dreamstabItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dreams"
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/memoriesTabItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memories"
+                />
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/homeviewPager"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:paddingTop="@dimen/largeMargin"
-            android:paddingBottom="@dimen/largeMargin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
 
+        <!--region harish
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/emptyAnimation"
             android:layout_width="match_parent"
@@ -41,6 +64,21 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/emptywaiting" />
+            end region-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_white"
+            android:backgroundTint="#15AE5C"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="18dp"
+            app:tint="@color/mainBackGroundColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:transitionName="shared_element_container" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

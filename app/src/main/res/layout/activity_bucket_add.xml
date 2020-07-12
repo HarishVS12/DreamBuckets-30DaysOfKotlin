@@ -32,9 +32,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
-                android:minHeight="180dp"
+                android:minHeight="256dp"
                 app:collapsedTitleTextAppearance="@style/shrinkedTextAppearance"
                 app:contentScrim="@color/toolbarColor"
+                app:statusBarScrim="?attr/colorOnPrimarySurface"
                 app:expandedTitleMarginEnd="68dp"
                 app:expandedTitleMarginStart="24dp"
                 app:expandedTitleTextAppearance="@style/expandedTitleTextAppearance"
@@ -56,13 +57,13 @@
                     app:layout_constraintTop_toTopOf="parent"
                     />
 
+                <!-- android:backgroundTint="@color/textColor"-->
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
-                    android:backgroundTint="@color/textColor"
-                    android:elevation="6dp"
+                    android:elevation="4dp"
                     app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
                     />
 

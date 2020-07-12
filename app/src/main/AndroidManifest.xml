@@ -24,6 +24,7 @@
             android:parentActivityName=".ui.activities.DashboardActivity"
             android:screenOrientation="portrait"
             >
+
         </activity>
         <activity
             android:name=".ui.activities.DashboardActivity">

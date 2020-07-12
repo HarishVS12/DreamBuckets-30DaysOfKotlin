@@ -5,6 +5,7 @@ buildscript {
     ext{
         kotlin_version = '1.3.72'
         material_version = "1.2.0-beta01"
+        viewpager_version = '1.0.0'
 
         nav_version = "2.3.0-beta01"
         lifecycle_version = "2.2.0"
@@ -14,6 +15,8 @@ buildscript {
 
         lottieVersion = "3.4.0"
         activityVersion = "1.2.0-alpha06"
+
+        glide_version = "4.11.0"
     }
 
     repositories {

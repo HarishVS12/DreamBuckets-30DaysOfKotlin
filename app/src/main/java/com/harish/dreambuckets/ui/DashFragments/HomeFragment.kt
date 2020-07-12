@@ -1,19 +1,21 @@
 package com.harish.dreambuckets.ui.DashFragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.tabs.TabLayout
 import com.harish.dreambuckets.R
-import com.harish.dreambuckets.adapters.HomeDisplayAdapter
-import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import com.harish.dreambuckets.adapters.TabFragmentPagerAdapter
 import com.harish.dreambuckets.databinding.FragmentHomeBinding
-import com.harish.dreambuckets.utilities.SwipeToDelete
+import com.harish.dreambuckets.ui.activities.BucketAddActivity
+import com.harish.dreambuckets.ui.tabs.DreamsTab
+import com.harish.dreambuckets.ui.tabs.MemoriesTab
 
 class HomeFragment : Fragment() {
 
@@ -27,33 +29,43 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil
             .inflate(inflater, R.layout.fragment_home, container, false)
 
-        val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
 
-
-        val adapter = HomeDisplayAdapter(requireContext(), viewModel)
-        viewModel.bucketLists.observe(requireActivity(), androidx.lifecycle.Observer { buckets ->
-            buckets?.let {
-                if (buckets.isEmpty())
-                    binding.emptyAnimation.visibility = View.VISIBLE
-                else
-                    binding.emptyAnimation.visibility = View.GONE
-                adapter.setWords(it)
-            }
-        })
-
-
-
-        binding.apply {
-
-            homeRecyclerView.adapter = adapter
-            homeRecyclerView.setHasFixedSize(true)
-            homeRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-            val item = ItemTouchHelper(SwipeToDelete(adapter,requireActivity()))
-            item.attachToRecyclerView(homeRecyclerView)
+        binding.floatingAdd.setOnClickListener {
+            val intent = Intent(activity, BucketAddActivity::class.java)
+            startActivity(intent)
         }
+
+        val pagerAdapter = TabFragmentPagerAdapter(
+            requireActivity().supportFragmentManager,
+            binding.tabLayout.tabCount
+        )
+
+        binding.homeviewPager.adapter = pagerAdapter
+
+        binding.tabLayout.setupWithViewPager(binding.homeviewPager)
+
+       /* binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                when(tab.position){
+                    0 -> findNavController().navigate(R.id.dreamsTab)
+                    1 -> findNavController().navigate(R.id.memoriesTab)
+                }
+            }
+
+
+        })*/
+
 
         return binding.root
     }
+
+
 
 
 }

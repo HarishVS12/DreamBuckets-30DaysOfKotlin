@@ -23,23 +23,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             >
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/dreamstabItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dreams"
-                />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/memoriesTabItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Memories"
-                />
         </com.google.android.material.tabs.TabLayout>
 
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeviewPager"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -49,22 +36,6 @@
             app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
 
-        <!--region harish
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/emptyAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.5"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/emptywaiting" />
-            end region-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingAdd"

@@ -1,38 +1,29 @@
 package com.harish.dreambuckets.adapters
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.harish.dreambuckets.ui.tabs.DreamsTab
 import com.harish.dreambuckets.ui.tabs.MemoriesTab
 
 class TabFragmentPagerAdapter(
-    fragmentManager: FragmentManager,
-    noOfTabs: Int):
-    FragmentStatePagerAdapter(fragmentManager,noOfTabs) {
+    fragment: Fragment):
+    FragmentStateAdapter(fragment) {
 
-
-    override fun getItem(position: Int): Fragment {
-        lateinit var frag : Fragment
-        when(position){
-            0 -> frag = DreamsTab()
-            1-> frag =  MemoriesTab()
-        }
-        return frag
-    }
-
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return 2
     }
 
-    override fun getPageTitle(position: Int): CharSequence {
-        var str: CharSequence = ""
+    override fun createFragment(position: Int): Fragment {
+        lateinit var fragment : Fragment
         when(position){
-            0 -> str = "Dreams"
-            1 -> str = "Memories"
+            0 -> fragment = DreamsTab()
+            1 -> fragment = MemoriesTab()
         }
-        return str
+        return fragment
     }
 
 

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.TabFragmentPagerAdapter
 import com.harish.dreambuckets.databinding.FragmentHomeBinding
@@ -35,14 +36,18 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        val pagerAdapter = TabFragmentPagerAdapter(
-            requireActivity().supportFragmentManager,
-            binding.tabLayout.tabCount
-        )
+        val pagerAdapter = TabFragmentPagerAdapter(this)
+        binding.homeviewPager.apply {
+            adapter = pagerAdapter
+        }
 
-        binding.homeviewPager.adapter = pagerAdapter
 
-        binding.tabLayout.setupWithViewPager(binding.homeviewPager)
+        TabLayoutMediator(binding.tabLayout,binding.homeviewPager){
+            tab,position ->
+                if(position==0) tab.text = "Dreams"
+                else if(position==1) tab.text = "Memories"
+        }.attach()
+
 
        /* binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabReselected(tab: TabLayout.Tab?) {

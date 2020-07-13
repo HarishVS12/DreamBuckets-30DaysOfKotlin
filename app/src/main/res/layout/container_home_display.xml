@@ -8,12 +8,13 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/masterCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:cardElevation="4dp"
         android:clickable="true"
         app:cardCornerRadius="5dp">
@@ -22,25 +23,43 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/cardBgColorHome"
-            android:padding="@dimen/largePadding">
+            android:padding="18dp"
+            >
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="116dp" />
+                app:layout_constraintGuide_begin="146dp" />
 
-            <ImageView
-                android:id="@+id/bucketsImageView"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardColorView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginRight="@dimen/smallMargin"
-                android:src="@mipmap/ic_bucket_icon"
+                app:cardCornerRadius="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="28dp"
                 app:layout_constraintRight_toLeftOf="@id/guideline"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <ImageView
+                    android:id="@+id/bucketsImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_bucket_icon"
+                     />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
 
             <TextView
                 android:id="@+id/bucketNameTextView"
@@ -55,33 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Finish the 30 Days of kotlin" />
 
-            <View
-                android:id="@+id/viewSeperator"
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:alpha="0.5"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:background="@color/seperatorLineColor"
-                app:layout_constraintTop_toBottomOf="@id/bucketNameTextView"
-                app:layout_constraintStart_toStartOf="@id/bucketNameTextView"
-                app:layout_constraintEnd_toEndOf="@id/bucketNameTextView"
-                />
 
-
-
-            <TextView
-                android:id="@+id/thoughtsTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/smallMargin"
-                android:fontFamily="@font/muli"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@color/cardTextColor"
-                app:layout_constraintStart_toEndOf="@id/guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/viewSeperator"
-                tools:text="I just really wanna finish this in around 30 days" />
 
             <TextView
                 android:id="@+id/categoryTextView"
@@ -93,7 +86,7 @@
                 android:textColor="@color/cardTextColor"
                 app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/thoughtsTextView"
+                app:layout_constraintTop_toBottomOf="@id/bucketNameTextView"
                 tools:text="Travel" />
 
             <TextView
@@ -111,7 +104,22 @@
                 tools:text="29/05/2020" />
             <!--            android:textColor="@color/colorPrimaryDark"-->
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:background="@color/colorAccent"
+            android:layout_gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

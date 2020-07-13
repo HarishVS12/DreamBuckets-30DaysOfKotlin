@@ -17,6 +17,9 @@
     <color name="toolbarColor">#424242</color>
     <color name="toolbarSeperator">#424242</color>
 
+    <color name="statusbarcolor">#D1424242</color>
+
+
     <!-- Common -->
     <color name="toolbarColorCommon">#000000</color>
 
@@ -55,5 +58,8 @@
     <color  name="levelcolor1">#90caf9</color>
     <color  name="levelcolor2">#ffcc80</color>
     <color  name="levelcolor3">#f48fb1</color>
+
+
+    <color name="bottomFragColor">#424242</color>
 
 </resources>

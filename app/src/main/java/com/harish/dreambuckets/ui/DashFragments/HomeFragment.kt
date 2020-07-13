@@ -30,11 +30,12 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil
             .inflate(inflater, R.layout.fragment_home, container, false)
 
-
         binding.floatingAdd.setOnClickListener {
             val intent = Intent(activity, BucketAddActivity::class.java)
             startActivity(intent)
         }
+
+        binding.homeviewPager.isUserInputEnabled = false
 
         val pagerAdapter = TabFragmentPagerAdapter(this)
         binding.homeviewPager.apply {
@@ -48,23 +49,6 @@ class HomeFragment : Fragment() {
                 else if(position==1) tab.text = "Memories"
         }.attach()
 
-
-       /* binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                when(tab.position){
-                    0 -> findNavController().navigate(R.id.dreamsTab)
-                    1 -> findNavController().navigate(R.id.memoriesTab)
-                }
-            }
-
-
-        })*/
 
 
         return binding.root

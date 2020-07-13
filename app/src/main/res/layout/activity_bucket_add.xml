@@ -23,19 +23,18 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/mainAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="270dp"
             android:fitsSystemWindows="true"
             >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/collapsingtoolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:minHeight="256dp"
                 app:collapsedTitleTextAppearance="@style/shrinkedTextAppearance"
                 app:contentScrim="@color/toolbarColor"
-                app:statusBarScrim="?attr/colorOnPrimarySurface"
+                app:statusBarScrim="@color/toolbarColorCommon"
                 app:expandedTitleMarginEnd="68dp"
                 app:expandedTitleMarginStart="24dp"
                 app:expandedTitleTextAppearance="@style/expandedTitleTextAppearance"
@@ -47,9 +46,10 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="256dp"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@drawable/marssunset"
+                    android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -58,12 +58,12 @@
                     />
 
                 <!-- android:backgroundTint="@color/textColor"-->
-                <androidx.appcompat.widget.Toolbar
+                <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
                     app:layout_collapseMode="pin"
-                    android:elevation="4dp"
                     app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
                     />
 
@@ -84,42 +84,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     >
-
-<!--
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/frameLayout">
-
-
-
-                        <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="180dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/marssunset"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/addPhotoButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@android:color/holo_red_light"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:elevation="90dp"
-                            android:text="Add Photo"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="1.6"
-                            />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
--->
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/nameTextView"

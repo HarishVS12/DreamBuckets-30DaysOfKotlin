@@ -11,6 +11,8 @@
     <color name="cardColor">#3459E6</color>
     <color name="secCardColor">#08BC5C</color>
 
+    <color name="statusbarcolor">#E1038740</color>
+
     <color name="textColor">#000000</color>
 
     <color name="toolbarColorCommon">#FFFFFF</color>
@@ -54,5 +56,7 @@
     <color name="levelcolor2">#ff9800</color>
     <color name="levelcolor3">#e91e63</color>
 
+
+    <color name="bottomFragColor">#FFFFFF</color>
 
 </resources>

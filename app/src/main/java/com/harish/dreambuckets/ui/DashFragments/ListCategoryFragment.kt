@@ -16,7 +16,7 @@ import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.FragmentListCategoryBinding
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
-class ListCategoryFragment : Fragment() {
+class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
 
     private lateinit var binding: FragmentListCategoryBinding
     private lateinit var viewModel: BucketListViewModel
@@ -32,7 +32,7 @@ class ListCategoryFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
         val args = ListCategoryFragmentArgs.fromBundle(requireArguments())
 
-        val adapter = HomeDisplayAdapter(requireContext(),viewModel)
+        val adapter = HomeDisplayAdapter(requireContext(),viewModel,this)
 
         viewModel.getBucketsByCategory(args.category).observe(requireActivity(), Observer {
                 buckets ->
@@ -53,5 +53,9 @@ class ListCategoryFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onItemSelected(position: Int) {
+        TODO("Not yet implemented")
     }
 }

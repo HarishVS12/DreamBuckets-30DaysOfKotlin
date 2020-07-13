@@ -17,6 +17,7 @@ buildscript {
         activityVersion = "1.2.0-alpha06"
 
         glide_version = "4.11.0"
+        leakcanary_version = "2.4"
     }
 
     repositories {

@@ -47,8 +47,6 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
     override fun onCreate(savedInstanceState: Bundle?) {
 //        sharedElementTransition()
         super.onCreate(savedInstanceState)
-//        clearLightStatusBar(window.decorView)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
 
 

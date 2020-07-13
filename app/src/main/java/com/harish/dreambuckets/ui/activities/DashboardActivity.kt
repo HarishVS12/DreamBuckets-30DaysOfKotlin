@@ -50,10 +50,8 @@ class DashboardActivity : AppCompatActivity() {
 
         if(isNightMode){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            window.statusBarColor = Color.BLACK
         }else{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            window.statusBarColor = Color.WHITE
         }
 
 

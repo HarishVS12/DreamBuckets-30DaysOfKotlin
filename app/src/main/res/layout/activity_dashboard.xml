@@ -21,7 +21,10 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            >
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
@@ -29,7 +32,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/white"
                 app:title="@string/app_name"
-                app:titleTextColor="@android:color/black"
+                android:backgroundTint="@color/secCardColor"
+                app:titleTextColor="@android:color/white"
                 app:menu="@menu/toolbar_menu"
                 />
 
@@ -56,28 +60,25 @@
             />
 
 
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-            android:id="@+id/bottomNavView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:itemIconTint="@color/secCardColor"
-            app:itemTextColor="@android:color/black"
-            app:backgroundTint="@color/cardBgColorHome"
-            android:backgroundTint="@color/secCardColor"
-            app:itemTextAppearanceActive="@style/bottomNavTextAppearanceActive"
-            app:itemTextAppearanceInactive="@style/bottomNavTextAppearanceInActive"
-            app:elevation="5dp"
-            android:elevation="5dp"
-            app:itemIconSize="24dp"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_appbar_menu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavView"
+                style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/secCardColor"
+                android:elevation="10dp"
+                app:elevation="10dp"
+                app:backgroundTint="@color/bottomFragColor"
+                app:itemIconTint="@color/buttonBGColor"
+                app:itemTextAppearanceActive="@style/bottomNavTextAppearanceActive"
+                app:itemTextAppearanceInactive="@style/bottomNavTextAppearanceInActive"
+                app:itemTextColor="@color/textColor"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_appbar_menu" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

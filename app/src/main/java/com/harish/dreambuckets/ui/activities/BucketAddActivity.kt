@@ -125,7 +125,8 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
                 categoryTitle!!,
                 viewModel.livedate.value!!,
                 imageUriString,
-                dreamLevelString
+                dreamLevelString,
+                0
             )
 
             viewModel.insert(bucketList)

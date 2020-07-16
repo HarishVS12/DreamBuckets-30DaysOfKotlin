@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.harish.dreambuckets.R
-import com.harish.dreambuckets.databinding.FragmentCategoriesBinding
 import com.harish.dreambuckets.models.CategoriesModel
 
 class CategoriesAdapter(var arrayList: ArrayList<CategoriesModel>, var onCategoryClickListener:

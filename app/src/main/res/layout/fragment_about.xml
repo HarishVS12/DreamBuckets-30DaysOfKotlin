@@ -23,15 +23,32 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <ImageView
-                android:id="@+id/circleDeveloper"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardColorView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:cardElevation="16dp"
+                app:cardCornerRadius="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
-                android:src="@drawable/dev_pic"
                 app:civ_border_color="@color/secCardColor"
-                app:civ_border_width="2dp" />
+                app:civ_border_width="2dp"
+                >
+
+
+                <ImageView
+                    android:id="@+id/circleDeveloper"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/ic_bucket_icon"
+
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
 
 
             <TextView
@@ -46,19 +63,17 @@
                 android:padding="4dp"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/smallMargin"
-                android:background="@color/textViewBg"
                 android:text="@string/about_developer_name"
-                android:textColor="@android:color/white"
+                android:textColor="@color/textColor"
                 android:textSize="30sp" />
 
 
             <TextView
                 style="@style/aboutTextView"
-                android:background="@color/textViewSubBG"
                 android:padding="4dp"
                 android:layout_gravity="center"
                 android:text="@string/about_designation"
-                android:textColor="@android:color/white"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
 
 

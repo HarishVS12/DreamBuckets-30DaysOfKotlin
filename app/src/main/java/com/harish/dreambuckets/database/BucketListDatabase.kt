@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [BucketList::class], version =1, exportSchema = false)
+@Database(entities = [BucketList::class], version=1, exportSchema = false)
 public abstract class BucketListDatabase : RoomDatabase() {
 
     abstract fun getDao() : BucketListDAO

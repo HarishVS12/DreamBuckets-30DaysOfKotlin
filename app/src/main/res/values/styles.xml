@@ -11,6 +11,11 @@
         <item name="android:statusBarColor">@color/statusbarcolor</item>
     </style>
 
+
+    <style name="AppTheme.detailedActivity">
+        <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+
     <style name="AppTheme.statusBarTransparent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -121,6 +126,13 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="detailedTextView">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/smallMargin</item>
+        <item name="android:fontFamily">@font/muli</item>
+    </style>
 
 
 </resources>

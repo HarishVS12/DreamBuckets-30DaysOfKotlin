@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_bucket_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.DetailedBucketActivity"></activity>
+        <activity android:name=".ui.activities.DetailedBucketActivity"
+                    android:theme="@style/AppTheme.detailedActivity"
+            ></activity>
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,6 @@
 package com.harish.dreambuckets.ui.DashFragments
 
+import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.FragmentListCategoryBinding
+import com.harish.dreambuckets.ui.activities.DetailedBucketActivity
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
 class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
@@ -55,7 +57,9 @@ class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListene
         return binding.root
     }
 
-    override fun onItemSelected(position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemSelected(position: Int,bucketID:Int) {
+        val intent = Intent(activity, DetailedBucketActivity::class.java)
+        intent.putExtra("bucketID",bucketID)
+        startActivity(intent)
     }
 }

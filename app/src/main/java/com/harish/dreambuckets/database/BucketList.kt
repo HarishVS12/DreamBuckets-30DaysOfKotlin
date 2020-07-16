@@ -20,15 +20,17 @@ data class BucketList(
     @ColumnInfo(name = "image_uri")
     var bucketImageUri: String,
     @ColumnInfo(name = "dream_level")
-    var dreamLevel: String
+    var dreamLevel: String,
+    @ColumnInfo(name = "isAccompolished")
+    var isAccompolished: Int
 ){
     @Ignore
     constructor(bucketName: String, bucketThoughts: String,
                 bucketCategory: String, targetDate: String, bucketImageUri: String,
-                dreamLevel: String) : this(
+                dreamLevel: String, isAccompolished:Int) : this(
             id=0, bucketName = bucketName,bucketThoughts = bucketThoughts,
         category = bucketCategory, bucketTargetDate = targetDate, bucketImageUri = bucketImageUri,
-        dreamLevel = dreamLevel)
+        dreamLevel = dreamLevel,isAccompolished = isAccompolished)
 
 
 }

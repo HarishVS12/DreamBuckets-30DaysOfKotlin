@@ -21,6 +21,7 @@ import com.harish.dreambuckets.viewmodels.BucketListViewModel
 class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
 
     private lateinit var binding: FragmentDreamsTabBinding
+    private val accompolishedID: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,8 @@ class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
         val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
 
         val adapter = HomeDisplayAdapter(requireContext(), viewModel, this)
-        viewModel.bucketLists.observe(requireActivity(), androidx.lifecycle.Observer { buckets ->
+
+        viewModel.getBucketsByAccompolish(accompolishedID).observe(requireActivity(), androidx.lifecycle.Observer { buckets ->
             buckets?.let {
                 if (buckets.isEmpty())
                     binding.emptyAnimation.visibility = View.VISIBLE
@@ -55,8 +57,11 @@ class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
         return binding.root
     }
 
-    override fun onItemSelected(position: Int) {
-        startActivity(Intent(activity, DetailedBucketActivity::class.java))
+    override fun onItemSelected(position: Int, id:Int) {
+        val intent = Intent(activity, DetailedBucketActivity::class.java)
+        intent.putExtra("bucketID",id)
+        intent.putExtra("AccompolishID",accompolishedID)
+        startActivity(intent)
     }
 
 }

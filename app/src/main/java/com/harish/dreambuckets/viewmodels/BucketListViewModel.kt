@@ -22,6 +22,7 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
     val livedate: LiveData<String?>
             get() = _livedate
 
+
     val bucketLists: LiveData<List<BucketList>>
     lateinit var bucketListCategory : LiveData<List<BucketList>>
 
@@ -36,14 +37,8 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
 
     }
 
+
     fun insert(bucketList: BucketList) {
-        /*val bucketList = BucketList(
-            bucketName,
-            bucketThoughts,
-            bucketCategory!!,
-            targetDate,
-            imageUri
-        )*/
         insertBucketLists(bucketList)
     }
 
@@ -53,8 +48,22 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
         }
     }
 
+    fun updateBucketByAccompolish(isAccompolish:Int, id:Int){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateBucketByAccompolish(isAccompolish,id)
+        }
+    }
+
+    fun getBucketsByAccompolish(isAccompolish: Int):LiveData<List<BucketList>>{
+        return repository.getBucketsByAccompolish(isAccompolish)
+    }
+
     fun getBucketsByCategory(category: String):LiveData<List<BucketList>> {
             return repository.getBucketsByCategory(category)
+    }
+
+    fun getBucketsById(bucketID: Int): LiveData<BucketList>{
+        return repository.getBucketsById(bucketID)
     }
 
     private fun insertBucketLists(bucketList: BucketList) = viewModelScope.launch(Dispatchers.IO) {
@@ -68,7 +77,6 @@ class BucketListViewModel(context: Application) : AndroidViewModel(context) {
     }
 
     fun pickerDateReceiver(it: Long?) {
-
         val date = Date(it!!)
         val format = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
         _livedate.value = format.format(date)

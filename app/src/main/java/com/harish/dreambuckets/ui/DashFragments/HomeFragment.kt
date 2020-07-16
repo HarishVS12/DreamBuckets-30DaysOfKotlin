@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.tabs.TabLayout
@@ -17,6 +18,7 @@ import com.harish.dreambuckets.databinding.FragmentHomeBinding
 import com.harish.dreambuckets.ui.activities.BucketAddActivity
 import com.harish.dreambuckets.ui.tabs.DreamsTab
 import com.harish.dreambuckets.ui.tabs.MemoriesTab
+import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
 class HomeFragment : Fragment() {
 
@@ -27,6 +29,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        
         binding = DataBindingUtil
             .inflate(inflater, R.layout.fragment_home, container, false)
 
@@ -50,10 +53,8 @@ class HomeFragment : Fragment() {
         }.attach()
 
 
-
         return binding.root
     }
-
 
 
 

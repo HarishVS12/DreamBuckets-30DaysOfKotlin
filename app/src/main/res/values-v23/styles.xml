@@ -13,6 +13,11 @@
 
     </style>
 
+    <style name="AppTheme.detailedActivity">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <style name="AppTheme.statusBarTransparent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

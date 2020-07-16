@@ -33,7 +33,7 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
         val bucketName = itemView.findViewById<TextView>(R.id.bucketNameTextView)
         val category = itemView.findViewById<TextView>(R.id.categoryTextView)
         val date = itemView.findViewById<TextView>(R.id.dateTextView)
-        val bucketImage = itemView.findViewById<ImageView>(R.id.bucketsImageView)
+        val bucketImage = itemView.findViewById<ImageView>(R.id.cardColorImageView)
         val masterCardView = itemView.findViewById<CardView>(R.id.masterCardView)
     }
 
@@ -64,7 +64,7 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
             holder.category.text = "${arr[position].category}"
             holder.date.text = "${arr[position].bucketTargetDate}"
             holder.masterCardView.setOnClickListener {
-                onItemSelectedListener.onItemSelected(position)
+                onItemSelectedListener.onItemSelected(position, arr[position].id)
             }
 
 
@@ -78,7 +78,7 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
     }
 
     interface OnItemSelectedListener{
-        fun onItemSelected(position: Int)
+        fun onItemSelected(position: Int, id: Int)
     }
 
 

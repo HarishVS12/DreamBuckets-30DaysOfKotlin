@@ -32,7 +32,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="224dp" />
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardColorView"
                 android:layout_width="0dp"
@@ -41,6 +40,12 @@
                 app:cardElevation="15dp"
                 app:cardCornerRadius="0dp"
                 app:layout_constraintHorizontal_bias="0"
+            <ImageView
+                android:id="@+id/bucketsImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_bucket_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="parent"

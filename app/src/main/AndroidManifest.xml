@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_bucket_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.DetailedBucketActivity"
-                    android:theme="@style/AppTheme.detailedActivity"
-            ></activity>
+        <activity
+            android:name=".ui.activities.DetailedBucketActivity"
+            android:theme="@style/AppTheme.detailedActivity">
+        </activity>
+
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.activities.BucketAddActivity"
             android:parentActivityName=".ui.activities.DashboardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.statusBarTransparent"></activity>
-        <activity android:name=".ui.activities.DashboardActivity"></activity>
+            android:theme="@style/AppTheme.statusBarTransparent">
+        </activity>
+
+        <activity
+            android:name=".ui.activities.DashboardActivity">
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,5 +1,6 @@
 package com.harish.dreambuckets.ui.tabs
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -60,11 +61,16 @@ class MemoriesTab : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
         return binding.root
     }
 
-    override fun onItemSelected(position: Int, id: Int) {
+    override fun onItemSelected(position: Int, id: Int, view:View) {
         val intent = Intent(activity, DetailedBucketActivity::class.java)
         intent.putExtra("bucketID",id)
         intent.putExtra("AccompolishID",accompolishedID)
-        startActivity(intent)
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            "shared_trans"
+        )
+        startActivity(intent,options.toBundle())
     }
 
 }

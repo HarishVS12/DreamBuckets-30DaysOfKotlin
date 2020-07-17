@@ -4,12 +4,15 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityDetailedBucketBinding
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
@@ -22,6 +25,7 @@ class DetailedBucketActivity : AppCompatActivity() {
     private var accompolishID:Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_detailed_bucket)
 
@@ -65,8 +69,35 @@ class DetailedBucketActivity : AppCompatActivity() {
         binding.accompolishMaterialButton.setOnClickListener {
             bucketListViewModel.updateBucketByAccompolish(1,bucketID)
             Toast.makeText(this, "Successfully Accompolished!!", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
+    }
+
+    fun sharedElementTransition() {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
+        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
+        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
+        window.sharedElementExitTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
+        window.sharedElementReenterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
 
     }
 }

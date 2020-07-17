@@ -31,10 +31,10 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
 
     class HomeDisplayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val bucketName = itemView.findViewById<TextView>(R.id.bucketNameTextView)
-        val category = itemView.findViewById<TextView>(R.id.categoryTextView)
-        val date = itemView.findViewById<TextView>(R.id.dateTextView)
         val bucketImage = itemView.findViewById<ImageView>(R.id.cardColorImageView)
         val masterCardView = itemView.findViewById<CardView>(R.id.masterCardView)
+        val cardColorView = itemView.findViewById<CardView>(R.id.cardColorView)
+        val cardImageView = itemView.findViewById<ImageView>(R.id.cardImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDisplayViewHolder {
@@ -61,24 +61,29 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
     override fun onBindViewHolder(holder: HomeDisplayViewHolder, position: Int) {
 
             holder.bucketName.text = arr[position].bucketName
-            holder.category.text = "${arr[position].category}"
-            holder.date.text = "${arr[position].bucketTargetDate}"
-            holder.masterCardView.setOnClickListener {
-                onItemSelectedListener.onItemSelected(position, arr[position].id)
+            when(arr[position].dreamLevel){
+            "Level 1"-> holder.cardImageView.setImageResource(R.color.levelcolor1)
+            "Level 2"-> holder.cardImageView.setImageResource(R.color.levelcolor2)
+            "Level 3"-> holder.cardImageView.setImageResource(R.color.levelcolor3)
             }
 
 
-            Glide
+        Glide
                 .with(context)
                 .load(arr[position].bucketImageUri)
                 .centerCrop()
                 .into(holder.bucketImage)
+        holder.masterCardView.setOnClickListener {
+            onItemSelectedListener.onItemSelected(position, arr[position].id,holder.cardColorView)
+        }
+
+
 
 
     }
 
     interface OnItemSelectedListener{
-        fun onItemSelected(position: Int, id: Int)
+        fun onItemSelected(position: Int, id: Int, view:View)
     }
 
 

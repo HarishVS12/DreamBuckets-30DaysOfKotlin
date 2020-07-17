@@ -1,5 +1,6 @@
 package com.harish.dreambuckets.ui.DashFragments
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
@@ -57,9 +58,15 @@ class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListene
         return binding.root
     }
 
-    override fun onItemSelected(position: Int,bucketID:Int) {
+    override fun onItemSelected(position: Int,bucketID:Int,view:View) {
         val intent = Intent(activity, DetailedBucketActivity::class.java)
         intent.putExtra("bucketID",bucketID)
-        startActivity(intent)
+        intent.putExtra("AccompolishID",1)
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            "shared_trans"
+        )
+        startActivity(intent, options.toBundle())
     }
 }

@@ -1,16 +1,19 @@
 package com.harish.dreambuckets.ui.tabs
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.databinding.FragmentDreamsTabBinding
@@ -23,11 +26,15 @@ class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
     private lateinit var binding: FragmentDreamsTabBinding
     private val accompolishedID: Int = 0
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_dreams_tab,container, false)
 
 
@@ -57,11 +64,16 @@ class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
         return binding.root
     }
 
-    override fun onItemSelected(position: Int, id:Int) {
+    override fun onItemSelected(position: Int, id:Int,view:View) {
         val intent = Intent(activity, DetailedBucketActivity::class.java)
         intent.putExtra("bucketID",id)
         intent.putExtra("AccompolishID",accompolishedID)
-        startActivity(intent)
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            "shared_trans"
+        )
+        startActivity(intent, options.toBundle())
     }
 
 }

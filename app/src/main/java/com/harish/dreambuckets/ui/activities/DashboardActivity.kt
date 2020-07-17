@@ -17,10 +17,11 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityDashboardBinding
-import com.harish.dreambuckets.ui.BottomNavDrawerFragment
+import com.harish.dreambuckets.ui.DashFragments.HomeFragmentDirections
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -39,6 +40,9 @@ class DashboardActivity : AppCompatActivity() {
         sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_dashboard)
+        navController = findNavController(R.id.navHostFragment)
+
+        NavigationUI.setupWithNavController(binding.bottomNavView,navController)
 
           darkModePref = getSharedPreferences("DarkModePref",0)
           darkModePrefEdit = darkModePref.edit()
@@ -46,24 +50,20 @@ class DashboardActivity : AppCompatActivity() {
 
         if(isNightMode){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            window.statusBarColor = Color.BLACK
         }else{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            window.statusBarColor = Color.WHITE
         }
 
-        binding.appBar.performShow()
 
-        navController = findNavController(R.id.navHostFragment)
-        setSupportActionBar(binding.appBar)
+        setSupportActionBar(binding.toolbar)
 
 
-        binding.appBar.setNavigationOnClickListener {
+       /* binding.appBar.setNavigationOnClickListener {
             var navDrawer  = BottomNavDrawerFragment()
             navDrawer.show(supportFragmentManager,"TAG")
-        }
+        }*/
 
-        binding.floatingAdd.setOnClickListener {
+      /*  binding.floatingAdd.setOnClickListener {
             val intent = Intent(this, BucketAddActivity::class.java)
             val options = ActivityOptions.makeSceneTransitionAnimation(
             this,
@@ -72,15 +72,12 @@ class DashboardActivity : AppCompatActivity() {
             )
             startActivity(intent, options.toBundle())
         }
-
+*/
 
 
     }
 
-    override fun onResumeFragments() {
-        binding.appBar.performShow()
-        super.onResumeFragments()
-    }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/cardColor</color>
-    <color name="colorPrimaryDark">@color/secCardColor</color>
+    <color name="colorPrimary">@color/secCardColor</color>
+    <color name="colorPrimaryDark">@android:color/white</color>
     <color name="colorAccent">#FFC107</color>
 
     <color name="backgroundColor">#383242</color>
@@ -11,10 +11,16 @@
     <color name="cardColor">#3459E6</color>
     <color name="secCardColor">#08BC5C</color>
 
+    <color name="statusbarcolor">#E1038740</color>
+
     <color name="textColor">#000000</color>
 
-    <color name="toolbarColor">#FFFFFF</color>
+    <color name="toolbarColorCommon">#FFFFFF</color>
     <color name="toolbarSeperator">@color/seperatorLineColor</color>
+
+    <!-- Common -->
+    <color name="toolbarColor">#FFFFFF</color>
+
 
     <!--HomeFragment-->
     <color name="cardBgColorHome">#FFFFFF</color>
@@ -39,7 +45,18 @@
 
     <!-- Add Act -->
     <color name="buttonBGColor">#08BC5C</color>
+    <color name="addCardColor">#FFFFFF</color>
 
     <!-- Chip BG color -->
     <color name="chipBGColor">#08BC5C</color>
+
+
+    <!-- Level Colors -->
+    <color name="levelcolor1">#2196f3</color>
+    <color name="levelcolor2">#ff9800</color>
+    <color name="levelcolor3">#e91e63</color>
+
+
+    <color name="bottomFragColor">#FFFFFF</color>
+
 </resources>

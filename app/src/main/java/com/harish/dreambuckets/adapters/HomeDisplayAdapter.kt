@@ -3,29 +3,38 @@ package com.harish.dreambuckets.adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import java.io.FileInputStream
 
 private const val TAG = "SWIPED"
 
-class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel) : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplayViewHolder>() {
+class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel,
+                        var onItemSelectedListener: OnItemSelectedListener)
+    : RecyclerView.Adapter<HomeDisplayAdapter.HomeDisplayViewHolder>() {
 
     var arr = mutableListOf<BucketList>()
 
 
     class HomeDisplayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val bucketName = itemView.findViewById<TextView>(R.id.bucketNameTextView)
-        val bucketThoughts = itemView.findViewById<TextView>(R.id.thoughtsTextView)
-        val category = itemView.findViewById<TextView>(R.id.categoryTextView)
-        val date = itemView.findViewById<TextView>(R.id.dateTextView)
+        val bucketImage = itemView.findViewById<ImageView>(R.id.cardColorImageView)
+        val masterCardView = itemView.findViewById<CardView>(R.id.masterCardView)
+        val cardColorView = itemView.findViewById<CardView>(R.id.cardColorView)
+        val cardImageView = itemView.findViewById<ImageView>(R.id.cardImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDisplayViewHolder {
@@ -50,26 +59,32 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
     }
 
     override fun onBindViewHolder(holder: HomeDisplayViewHolder, position: Int) {
+
             holder.bucketName.text = arr[position].bucketName
-            holder.bucketThoughts.text = arr[position].bucketThoughts
-            holder.category.text = "CATEGORY: ${arr[position].category}"
-            holder.date.text = "TARGET DATE: ${arr[position].bucketTargetDate}"
+            when(arr[position].dreamLevel){
+            "Level 1"-> holder.cardImageView.setImageResource(R.color.levelcolor1)
+            "Level 2"-> holder.cardImageView.setImageResource(R.color.levelcolor2)
+            "Level 3"-> holder.cardImageView.setImageResource(R.color.levelcolor3)
+            }
+
+
+        Glide
+                .with(context)
+                .load(arr[position].bucketImageUri)
+                .centerCrop()
+                .into(holder.bucketImage)
+        holder.masterCardView.setOnClickListener {
+            onItemSelectedListener.onItemSelected(position, arr[position].id,holder.cardColorView)
+        }
+
+
+
 
     }
 
- /*   fun toast(message:String){
-        val v = View(context.applicationContext)
-        val inflater = LayoutInflater.from(context)
-        val container: ViewGroup  = v.findViewById(R.id.custom_toast_container)
-        val layout: ViewGroup = inflater.inflate(R.layout.custom_toast, container) as ViewGroup
-        val text:TextView = layout.findViewById(R.id.toastMessageTextView)
-        text.text = message
-        with(Toast(context.applicationContext)){
-            view = layout
-            duration = Toast.LENGTH_LONG
-            show()
-        }
-    }*/
+    interface OnItemSelectedListener{
+        fun onItemSelected(position: Int, id: Int, view:View)
+    }
 
 
 }
@@ -77,14 +92,3 @@ class HomeDisplayAdapter(var context: Context,var viewModel: BucketListViewModel
 
 
 
-/*
-class HomeDisplayDiffUtil : DiffUtil.ItemCallback<BucketList>(){
-    override fun areItemsTheSame(oldItem: BucketList, newItem: BucketList): Boolean {
-        return oldItem.id==newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: BucketList, newItem: BucketList): Boolean {
-        return oldItem==newItem
-    }
-
-}*/

@@ -52,4 +52,12 @@
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"
         />
+    <fragment
+        android:id="@+id/dreamsTab"
+        android:name="com.harish.dreambuckets.ui.tabs.DreamsTab"
+        android:label="DreamsTab" />
+    <fragment
+        android:id="@+id/memoriesTab"
+        android:name="com.harish.dreambuckets.ui.tabs.MemoriesTab"
+        android:label="MemoriesTab" />
 </navigation>

@@ -1,5 +1,7 @@
 package com.harish.dreambuckets.ui.DashFragments
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,9 +16,10 @@ import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.FragmentListCategoryBinding
+import com.harish.dreambuckets.ui.activities.DetailedBucketActivity
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
-class ListCategoryFragment : Fragment() {
+class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
 
     private lateinit var binding: FragmentListCategoryBinding
     private lateinit var viewModel: BucketListViewModel
@@ -32,7 +35,7 @@ class ListCategoryFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
         val args = ListCategoryFragmentArgs.fromBundle(requireArguments())
 
-        val adapter = HomeDisplayAdapter(requireContext(),viewModel)
+        val adapter = HomeDisplayAdapter(requireContext(),viewModel,this)
 
         viewModel.getBucketsByCategory(args.category).observe(requireActivity(), Observer {
                 buckets ->
@@ -53,5 +56,17 @@ class ListCategoryFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onItemSelected(position: Int,bucketID:Int,view:View) {
+        val intent = Intent(activity, DetailedBucketActivity::class.java)
+        intent.putExtra("bucketID",bucketID)
+        intent.putExtra("AccompolishID",1)
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            "shared_trans"
+        )
+        startActivity(intent, options.toBundle())
     }
 }

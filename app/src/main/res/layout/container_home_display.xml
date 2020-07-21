@@ -36,30 +36,30 @@
                 android:id="@+id/cardColorView"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="10dp"
-                app:cardElevation="15dp"
                 app:cardCornerRadius="0dp"
-                app:layout_constraintHorizontal_bias="0"
-            <ImageView
-                android:id="@+id/bucketsImageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/ic_bucket_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardElevation="1dp"
+                android:paddingRight="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/guideline"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                >
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/bucketsImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/ic_bucket_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <ImageView
                     android:id="@+id/cardColorImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:transitionName="shared_trans"
                     android:scaleType="centerCrop"
-                    tools:src="@color/colorAccent"
-                    />
+                    android:transitionName="shared_trans"
+                    tools:src="@color/colorAccent" />
 
             </androidx.cardview.widget.CardView>
 

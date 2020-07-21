@@ -1,7 +1,6 @@
-package com.harish.dreambuckets.ui.about
+package com.harish.dreambuckets.ui.DashFragments
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,8 +11,9 @@ import androidx.databinding.DataBindingUtil
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.FragmentAboutBinding
 import com.harish.dreambuckets.ui.activities.DashboardActivity
-import mehdi.sakout.aboutpage.AboutPage
-import mehdi.sakout.aboutpage.Element
+import com.harish.dreambuckets.utilities.GIT_ACCOUNT
+import com.harish.dreambuckets.utilities.INSTA_ACCOUNT
+
 
 class AboutFragment : Fragment() {
 
@@ -41,17 +41,12 @@ class AboutFragment : Fragment() {
 
 
 
-
         binding.imgGithub.setOnClickListener {
-            val gitIntent = Intent(Intent.ACTION_VIEW)
-            gitIntent.data = Uri.parse("http://github.com/HarishVS12")
-            startActivity(gitIntent)
+            intent(GIT_ACCOUNT)
         }
 
         binding.imgInstagram.setOnClickListener {
-            val instaIntent = Intent(Intent.ACTION_VIEW)
-            instaIntent.data = Uri.parse("https://www.instagram.com/_harish_vs_/")
-            startActivity(instaIntent)
+            intent(INSTA_ACCOUNT)
         }
 
         binding.imgEmail.setOnClickListener {
@@ -64,39 +59,14 @@ class AboutFragment : Fragment() {
             startActivity(mailIntent)
         }
 
-      /*  val gitElement = Element()
-        gitElement.apply {
-            iconDrawable = R.drawable.about_icon_github
-            title = "Fork this app on Github"
-            intent = gitIntent
-        }
-
-        val instaElement = Element()
-        instaElement.apply {
-            iconDrawable = R.drawable.about_icon_instagram
-            title = "Follow me on Instagram"
-            intent = instaIntent
-        }
-
-        val mailElement = Element()
-        mailElement.apply {
-            iconDrawable = R.drawable.about_icon_email
-            title = "Contact me"
-            intent = mailIntent
-        }
-
-        val aboutPage = AboutPage(requireContext())
-        aboutPage.apply {
-            isRTL(false)
-            setDescription((getText(R.string.about_dev)))
-            setImage(R.drawable.dev_pic)
-            addGroup("Connect with me")
-            addItem(mailElement)
-            addItem(gitElement)
-            addItem(instaElement)
-        }*/
 
         return binding.root
+    }
+
+    fun intent(str:String){
+        val instaIntent = Intent(Intent.ACTION_VIEW)
+        instaIntent.data = Uri.parse(str)
+        startActivity(instaIntent)
     }
 
 

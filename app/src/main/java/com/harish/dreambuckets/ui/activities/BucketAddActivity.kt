@@ -7,28 +7,24 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.view.Window
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.chip.Chip
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.DreamLevel
 import com.harish.dreambuckets.adapters.DreamLevelAdapter
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.ActivityBucketAddBinding
-import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import com.harish.dreambuckets.utilities.InjectorUtils
+import com.harish.dreambuckets.utilities.pickerInit
+import com.harish.dreambuckets.viewmodels.BucketAddActivityViewModel
 
 private const val PICK_IMAGE = 1
 
@@ -45,10 +41,8 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        sharedElementTransition()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bucket_add)
-
 
         if (DashboardActivity.isNightMode) {
             window.statusBarColor = resources.getColor(R.color.addCardColor)
@@ -66,13 +60,12 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
         }
 
 
-        //This can be called before an activity gets created but go down
-        val openDocument =
+     /*   val openDocument =
             registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
                 binding.imageView.setImageURI(uri)
                 imageUriString = uri.toString()
                 binding.imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-            }
+            }*/
 
 
         binding.addPhotoFAB.setOnClickListener {
@@ -83,7 +76,9 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
         }
 
 
-        val viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
+        val factory = InjectorUtils.provideBucketAddActViewModel(this.applicationContext)
+        val viewModel = ViewModelProvider(this, factory).get(BucketAddActivityViewModel::class.java)
+
         binding.viewModel = viewModel
         binding.setLifecycleOwner(this)
 
@@ -97,7 +92,7 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
 
         binding.fixedDateTextView.setOnClickListener {
 
-            picker = viewModel.pickerInit()
+            picker = pickerInit()
             picker.show(supportFragmentManager, picker.toString())
 
             picker.addOnPositiveButtonClickListener {
@@ -193,38 +188,8 @@ class BucketAddActivity : AppCompatActivity(), DreamLevelAdapter.OnLevelSelectLi
         return false
     }
 
-    fun sharedElementTransition() {
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
-        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
 
-        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
 
-        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-        window.sharedElementExitTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-        window.sharedElementReenterTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-    }
-
-    fun clearLightStatusBar(@NonNull view: View) {
-        var flags = view.systemUiVisibility
-        flags = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-        view.systemUiVisibility = flags
-    }
 
 
 }

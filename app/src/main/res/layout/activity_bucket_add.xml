@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.harish.dreambuckets.viewmodels.BucketListViewModel" />
+            type="com.harish.dreambuckets.viewmodels.BucketAddActivityViewModel" />
 
     </data>
 

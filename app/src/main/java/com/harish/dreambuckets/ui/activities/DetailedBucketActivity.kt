@@ -1,31 +1,28 @@
 package com.harish.dreambuckets.ui.activities
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.harish.dreambuckets.R
 import com.harish.dreambuckets.databinding.ActivityDetailedBucketBinding
-import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import com.harish.dreambuckets.utilities.InjectorUtils
+import com.harish.dreambuckets.utilities.sharedElementTransitionEnter
+import com.harish.dreambuckets.viewmodels.DetailBucketsViewModel
 
 class DetailedBucketActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailedBucketBinding
-    private lateinit var bucketListViewModel: BucketListViewModel
+    private lateinit var bucketListViewModel: DetailBucketsViewModel
     private var bucketID: Int = -1
     private var accompolishID:Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        sharedElementTransition()
+        sharedElementTransitionEnter(window,this)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_detailed_bucket)
 
@@ -42,7 +39,8 @@ class DetailedBucketActivity : AppCompatActivity() {
             binding.accompolishMaterialButton.visibility = View.INVISIBLE
 
 
-        bucketListViewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
+        val factory = InjectorUtils.provideDetailedBucketViewModel(this)
+        bucketListViewModel = ViewModelProvider(this,factory).get(DetailBucketsViewModel::class.java)
 
         bucketListViewModel.getBucketsById(bucketID).observe(this, Observer {
             binding.apply {
@@ -74,30 +72,5 @@ class DetailedBucketActivity : AppCompatActivity() {
 
     }
 
-    fun sharedElementTransition() {
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
-        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
 
-        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-        window.sharedElementExitTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-        window.sharedElementReenterTransition = MaterialContainerTransform().apply {
-            addTarget(android.R.id.content)
-            duration = 250L
-        }
-
-    }
 }

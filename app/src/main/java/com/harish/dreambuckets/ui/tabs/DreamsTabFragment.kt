@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,10 +19,12 @@ import com.harish.dreambuckets.R
 import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.databinding.FragmentDreamsTabBinding
 import com.harish.dreambuckets.ui.activities.DetailedBucketActivity
+import com.harish.dreambuckets.utilities.InjectorUtils
 import com.harish.dreambuckets.utilities.SwipeToDelete
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
+import com.harish.dreambuckets.viewmodels.BucketListViewModelFactory
 
-class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
+class DreamsTabFragment : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
 
     private lateinit var binding: FragmentDreamsTabBinding
     private val accompolishedID: Int = 0
@@ -38,7 +41,10 @@ class DreamsTab : Fragment(), HomeDisplayAdapter.OnItemSelectedListener{
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_dreams_tab,container, false)
 
 
-        val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
+        val factory = InjectorUtils.provideBucketListViewModel(requireActivity().applicationContext)
+//        val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
+
+        val viewModel = ViewModelProvider(requireActivity(), factory).get(BucketListViewModel::class.java)
 
         val adapter = HomeDisplayAdapter(requireContext(), viewModel, this)
 

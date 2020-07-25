@@ -2,7 +2,7 @@ package com.harish.dreambuckets.database
 
 import androidx.lifecycle.LiveData
 
-class BucketListRepository(var bucketListDAO: BucketListDAO){
+class BucketListRepository private constructor(private var bucketListDAO: BucketListDAO){
 
     var bucketlists: LiveData<List<BucketList>> = bucketListDAO.getBuckets()
 
@@ -29,6 +29,21 @@ class BucketListRepository(var bucketListDAO: BucketListDAO){
 
     suspend fun updateBucketByAccompolish(isAccompolish:Int, id: Int){
         bucketListDAO.updateAccompolished(isAccompolish,id)
+    }
+
+    companion object{
+
+        @Volatile
+        private var INSTANCE : BucketListRepository? = null
+
+        fun getRepository(bucketListDAO: BucketListDAO) : BucketListRepository{
+            return INSTANCE?: synchronized(this){
+                INSTANCE?:BucketListRepository(bucketListDAO).also {
+                    INSTANCE = it
+                }
+            }
+        }
+
     }
 
 }

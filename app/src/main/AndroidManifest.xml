@@ -34,9 +34,6 @@
 
         <activity
             android:name=".ui.activities.DashboardActivity">
-            android:name=".ui.activities.DashboardActivity"
-            android:launchMode="singleTask"
-            >
         </activity>
 
         <meta-data

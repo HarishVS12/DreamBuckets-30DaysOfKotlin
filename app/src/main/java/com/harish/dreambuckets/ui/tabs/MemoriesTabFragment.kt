@@ -16,10 +16,11 @@ import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.databinding.FragmentDreamsTabBinding
 import com.harish.dreambuckets.databinding.FragmentMemoriesTabBinding
 import com.harish.dreambuckets.ui.activities.DetailedBucketActivity
+import com.harish.dreambuckets.utilities.InjectorUtils
 import com.harish.dreambuckets.utilities.SwipeToDelete
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
-class MemoriesTab : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
+class MemoriesTabFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
 
     private lateinit var binding: FragmentMemoriesTabBinding
     private val accompolishedID: Int = 1
@@ -33,7 +34,10 @@ class MemoriesTab : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_memories_tab,container, false)
 
 
-        val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
+        val factory = InjectorUtils.provideBucketListViewModel(requireActivity().applicationContext)
+//        val viewModel = ViewModelProvider(requireActivity()).get(BucketListViewModel::class.java)
+
+        val viewModel = ViewModelProvider(requireActivity(), factory).get(BucketListViewModel::class.java)
 
         val adapter = HomeDisplayAdapter(requireContext(), viewModel, this)
 

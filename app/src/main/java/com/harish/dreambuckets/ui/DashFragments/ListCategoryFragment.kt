@@ -17,6 +17,7 @@ import com.harish.dreambuckets.adapters.HomeDisplayAdapter
 import com.harish.dreambuckets.database.BucketList
 import com.harish.dreambuckets.databinding.FragmentListCategoryBinding
 import com.harish.dreambuckets.ui.activities.DetailedBucketActivity
+import com.harish.dreambuckets.utilities.InjectorUtils
 import com.harish.dreambuckets.viewmodels.BucketListViewModel
 
 class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListener {
@@ -32,7 +33,9 @@ class ListCategoryFragment : Fragment(),HomeDisplayAdapter.OnItemSelectedListene
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_category,
                                             container, false)
 
-        viewModel = ViewModelProvider(this).get(BucketListViewModel::class.java)
+        val factory = InjectorUtils.provideBucketListViewModel(requireActivity().applicationContext)
+        val viewModel = ViewModelProvider(requireActivity(), factory).get(BucketListViewModel::class.java)
+
         val args = ListCategoryFragmentArgs.fromBundle(requireArguments())
 
         val adapter = HomeDisplayAdapter(requireContext(),viewModel,this)

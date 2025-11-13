@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.harish.dreambuckets">
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,7 +17,8 @@
             android:theme="@style/AppTheme.detailedActivity">
         </activity>
 
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name=".ui.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +30,8 @@
             android:name=".ui.activities.BucketAddActivity"
             android:parentActivityName=".ui.activities.DashboardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.statusBarTransparent">
+            android:theme="@style/AppTheme.statusBarTransparent"
+            tools:targetApi="23">
         </activity>
 
         <activity

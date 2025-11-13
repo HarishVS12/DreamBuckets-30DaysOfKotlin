@@ -14,8 +14,6 @@
         <action
             android:id="@+id/action_categoriesFragment_to_listCategoryFragment"
             app:destination="@id/listCategoryFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
             app:popUpTo="@id/categoriesFragment"
             app:popUpToInclusive="false" />
     </fragment>

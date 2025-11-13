@@ -33,9 +33,9 @@ class AboutFragment : Fragment() {
             binding.imgGithub.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_github_night, 0, 0, 0);
             binding.imgInstagram.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_instagram, 0, 0, 0);
         }else{
-            binding.imgEmail.setCompoundDrawablesWithIntrinsicBounds(R.drawable.about_icon_email, 0, 0, 0);
-            binding.imgGithub.setCompoundDrawablesWithIntrinsicBounds(R.drawable.about_icon_github, 0, 0, 0);
-            binding.imgInstagram.setCompoundDrawablesWithIntrinsicBounds(R.drawable.about_icon_instagram, 0, 0, 0);
+            binding.imgEmail.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_about, 0, 0, 0);
+            binding.imgGithub.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_about, 0, 0, 0);
+            binding.imgInstagram.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_about, 0, 0, 0);
         }
 
 

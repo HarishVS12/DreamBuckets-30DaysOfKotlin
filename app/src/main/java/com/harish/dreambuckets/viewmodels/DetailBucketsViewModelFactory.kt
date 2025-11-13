@@ -9,7 +9,7 @@ class DetailBucketsViewModelFactory(private val bucketListRepository: BucketList
 
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return DetailBucketsViewModel(bucketListRepository) as T
     }
 

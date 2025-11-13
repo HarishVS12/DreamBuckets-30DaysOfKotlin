@@ -36,7 +36,7 @@ android {
     signingConfigs {
         release {
             // You need to specify the path to your keystore file
-            storeFile file("your_keystore_file.jks")
+            storeFile file("keystore.jks")
             // You can either hardcode the password here or, for better security,
             // read it from a properties file or environment variable
             storePassword "harish@123"
